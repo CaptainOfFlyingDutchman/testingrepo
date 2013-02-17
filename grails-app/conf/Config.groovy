@@ -89,3 +89,10 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.intelligrape.linksharing.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.intelligrape.linksharing.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.intelligrape.linksharing.Role'
+
+grails.config.defaults.locations = [KickstartResources]
