@@ -9,9 +9,10 @@ class BootStrap {
         def userRole = Role.findByAuthority("ROLE_USER")?: new Role(authority: "ROLE_USER").save(failOnError: true)
         def adminRole = Role.findByAuthority("ROLE_ADMIN")?: new Role(authority: "ROLE_ADMIN").save(failOnError: true)
 
-        def adminUser = User.findByUsername("admin")?:new User(username: "admin",
+        def adminUser = User.findByUsername("admin@ig.com")?:new User(username: "admin@ig.com",
                                         password: "admin",
-                                        enabled: true).save(failOnError: true)
+                                        enabled: true,
+                                        firstName: "Admin", confirmPassword: "admin").save(failOnError: true)
 
         if (!adminUser.authorities.contains(adminRole)) {
             UserRole.create(adminUser, adminRole)

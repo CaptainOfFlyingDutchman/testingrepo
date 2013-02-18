@@ -1,7 +1,10 @@
 class UrlMappings {
 
 	static mappings = {
-		
+        /*My custom Url Mappings*/
+        "/register" (controller: "register", action: "index")
+        "/login" (controller: "login", action: "auth")
+
 		/* 
 		 * Pages without controller 
 		 */

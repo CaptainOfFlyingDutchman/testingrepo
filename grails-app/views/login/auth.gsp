@@ -2,7 +2,7 @@
 <head>
     <meta name='layout' content='kickstart'/>
     <title><g:message code="springSecurity.login.title"/></title>
-    <style type='text/css' media='screen'>
+    %{--<style type='text/css' media='screen'>
     #login {
         margin: 15px 0px;
         padding: 0px;
@@ -81,27 +81,27 @@
     #login .inner .chk {
         height: 12px;
     }
-    </style>
+    </style>--}%
 </head>
 
 <body>
 <div id='login'>
     <div class='inner'>
-        <div class='fheader'><g:message code="springSecurity.login.header"/></div>
+        <div class='modal-header'><h3><g:message code="springSecurity.login.header"/></h3></div>
 
-        <g:if test='${flash.message}'>
+        %{--<g:if test='${flash.message}'>
             <div class='login_message'>${flash.message}</div>
-        </g:if>
+        </g:if>--}%
 
         <form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
-            <p>
+            <p class="control-group">
                 <label for='username'><g:message code="springSecurity.login.username.label"/>:</label>
-                <input type='text' class='text_' name='j_username' id='username'/>
+                <input type='text' class='span3' name='j_username' id='username'/>
             </p>
 
-            <p>
+            <p class="control-group">
                 <label for='password'><g:message code="springSecurity.login.password.label"/>:</label>
-                <input type='password' class='text_' name='j_password' id='password'/>
+                <input type='password' class='span3' name='j_password' id='password'/>
             </p>
 
             <p id="remember_me_holder">
@@ -111,7 +111,7 @@
             </p>
 
             <p>
-                <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
+                <input type='submit' id="submit" class="btn btn-primary" value='${message(code: "springSecurity.login.button")}'/>
             </p>
         </form>
     </div>
