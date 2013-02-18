@@ -14,16 +14,13 @@
 </head>
 
 <body>
-    %{--<g:renderErrors bean="${user}" />--}%
-<g:hasErrors bean="${user}">
-    <ul>
-        <g:eachError bean="${user}" var="error">
-            <li <g:if test="${error in org.springframework.validation.FieldError}">
-                data-field-id="${error.field}"
-            </g:if>><g:message error="${error}"/> </li>
-        </g:eachError>
-    </ul>
-</g:hasErrors>
-    <p><g:link uri="/">Go to home page</g:link></p>
+
+    <g:renderErrors bean="${command}" class="alert alert-info"/>
+
+    <g:if test="${!command}">
+        <p>You are automatically signed in. Hurray!!!</p>
+        <h1>Go to <g:link uri="/">home page</g:link></h1>
+    </g:if>
+
 </body>
 </html>

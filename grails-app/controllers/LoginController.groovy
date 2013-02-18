@@ -41,6 +41,8 @@ class LoginController {
 	 */
 	def auth = {
 
+        println "======================================="
+        println params
 		def config = SpringSecurityUtils.securityConfig
 
 		if (springSecurityService.isLoggedIn()) {

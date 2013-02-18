@@ -10,6 +10,8 @@ class RegisterController {
 
 //	static scaffold = true
 
+    def springSecurityService
+
     static defaultAction = "index"
 
     def index = {
@@ -18,20 +20,17 @@ class RegisterController {
 
     def register(RegisterCommand command) {
         User user
-
         if (command.validate()) {
-            println "validation succeed"
             user = command.registerUser()
             user.save(flush: true, failOnError: true)
 
-//            [user:user]
+            springSecurityService.reauthenticate(user.username, user.password)
+//            redirect(url: "/LinkSharing/j_spring_security_check", params: [j_username:user.username, j_password:user.password])
+//            redirect(controller: "login", action: "auth", params: [j_username:user.username, j_password:user.password])
         } else {
-            println "validation failed"
-//            flash.message = message(code: "register.confirm.doesn't.not.match.with.password",
-//                    default: "Confirm password doesn't match with password")
+//            flash.message = "Errors are present in the registration box."
 
-//            redirect(controller: "register", action: "index", params: [user: User])
-//            render "error"
+            [command: command]
         }
     }
 }
