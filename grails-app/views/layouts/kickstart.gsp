@@ -67,6 +67,8 @@
 <g:else>
     <!-- Insert a modal dialog for registering (for an open site registering is possible on any page) -->
     <g:render template="/_common/modals/registerDialog" model="[item: item]"/>
+
+    <g:render template="/_common/modals/forgotDialog" />
 </g:else>
 
 <!-- Included Javascript files and other resources -->

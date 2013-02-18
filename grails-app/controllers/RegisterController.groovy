@@ -1,4 +1,4 @@
-import com.intelligrape.linksharing.User
+import com.intelligrape.linksharing.*
 
 //package linksharing
 
@@ -10,9 +10,13 @@ class RegisterController {
 
 //	static scaffold = true
 
+
     def springSecurityService
+    def sendAsynchronousEmailService
 
     static defaultAction = "index"
+
+
 
     def index = {
         [user: params.user]
@@ -30,6 +34,48 @@ class RegisterController {
         } else {
 //            flash.message = "Errors are present in the registration box."
 
+            [command: command]
+        }
+    }
+
+    def forgotPassword(CheckEmailCommand command) {
+        if (command.validate()) {
+            User user = User.findByUsername(command.username)
+            String uuid = UUID.randomUUID().toString()
+
+            ForgotPasswordToken forgotPasswordToken = new ForgotPasswordToken(token: uuid, user: user)
+            forgotPasswordToken.save(flush: true, failOnError: true)
+
+            println "====================================="
+            println forgotPasswordToken.token
+            println "====================================="
+
+
+            sendAsynchronousEmailService.sendAsyncEmail(user, forgotPasswordToken)
+        } else {
+            [command: command]
+        }
+    }
+
+    def resetPassword() {
+        if (!ForgotPasswordToken.findByToken(params.forgotPasswordToken)) {
+            render view: "linkExpired"
+        } else {
+            User tokenUser = ForgotPasswordToken.findByToken(params.forgotPasswordToken).user
+            [tokenUser: tokenUser]
+        }
+    }
+
+    def changePasswordAndLoginWithNewPassword(PasswordCheckCommand command) {
+        if (command.validate()) {
+            User user = command.user
+            user.password = command.password
+            user.save(flush: true, failOnError: true)
+
+            ForgotPasswordToken.findByUser(user).delete(flush: true)
+            springSecurityService.reauthenticate(user.username, user.password)
+
+        } else {
             [command: command]
         }
     }

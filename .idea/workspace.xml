@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/CheckEmailCommand.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/PasswordCheckCommand.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/_common/modals/_forgotDialog.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/register/_forgotPasswordBody.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/_common/modals/_forgotPasswordTextLink.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/register/changePasswordAndLoginWithNewPassword.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/register/forgotPassword.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/register/linkExpired.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/register/resetPassword.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkSharing-grailsPlugins.iml" afterPath="$PROJECT_DIR$/LinkSharing-grailsPlugins.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkSharing.iml" afterPath="$PROJECT_DIR$/LinkSharing.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/LoginController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/LoginController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/RegisterController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/RegisterController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/_common/modals/_registerDialog.gsp" afterPath="$PROJECT_DIR$/grails-app/views/_common/modals/_registerDialog.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/_menu/_user.gsp" afterPath="$PROJECT_DIR$/grails-app/views/_menu/_user.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application.properties" afterPath="$PROJECT_DIR$/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/kickstart.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/kickstart.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/register/register.gsp" afterPath="$PROJECT_DIR$/grails-app/views/register/register.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -13,24 +27,36 @@
     <ignored path="LinkSharing.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361168213607" ignored="false" />
+    <file path="/Dummy.txt" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361187223451" ignored="false" />
     <file path="/BootStrap.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361114349616" ignored="false" />
-    <file path="/a.dummy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361117235760" ignored="false" />
+    <file path="/a.dummy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361189486356" ignored="false" />
     <file path="/index.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361125197787" ignored="false" />
     <file path="/LoginController.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361173431500" ignored="false" />
-    <file path="/Dummy.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361174204581" ignored="false" />
+    <file path="/Dummy.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361196117887" ignored="false" />
     <file path="/auth.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361164947652" ignored="false" />
     <file path="/_menubar.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361098663892" ignored="false" />
-    <file path="/_user.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361169571569" ignored="false" />
-    <file path="/fragment.java" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361100181453" ignored="false" />
+    <file path="/_user.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361181160972" ignored="false" />
+    <file path="/fragment.java" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361195277518" ignored="false" />
     <file path="/User.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361123853200" ignored="false" />
     <file path="/UrlMappings.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361112691599" ignored="false" />
     <file path="/messages.properties" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361123077065" ignored="false" />
-    <file path="/RegisterController.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361174475056" ignored="false" />
+    <file path="/RegisterController.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361198965719" ignored="false" />
     <file path="/RegisterCommand.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361124620502" ignored="false" />
-    <file path="/register.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361174594769" ignored="false" />
+    <file path="/register.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361177204596" ignored="false" />
     <file path="/MySpringSecurityTagLib.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361168966548" ignored="false" />
     <file path="/_registerDialog.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361170265756" ignored="false" />
+    <file path="/_forgotPasswordTextLink.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361181300933" ignored="false" />
+    <file path="/_forgotDialog.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361183923333" ignored="false" />
+    <file path="/kickstart.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361181882406" ignored="false" />
+    <file path="/forgotPassword.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361190829545" ignored="false" />
+    <file path="/CheckEmailCommand.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361183099872" ignored="false" />
+    <file path="/SendAsynchronousEmailService.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361191007412" ignored="false" />
+    <file path="/ForgotPasswordToken.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361186418387" ignored="false" />
+    <file path="/_forgotPasswordBody.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361192463767" ignored="false" />
+    <file path="/resetPassword.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361196565588" ignored="false" />
+    <file path="/linkExpired.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361192372822" ignored="false" />
+    <file path="/PasswordCheckCommand.groovy" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361196555263" ignored="false" />
+    <file path="/changePasswordAndLoginWithNewPassword.gsp" changelist="b2f5bd09-0f1c-4e6e-9639-7afe6c8896c1" time="1361199339690" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +71,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -79,8 +107,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -93,16 +119,43 @@
       <file leaf-file-name="RegisterController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/RegisterController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="82" selection-start="493" selection-end="660" vertical-scroll-proportion="-8.304348">
+            <state line="68" column="0" selection-start="2089" selection-end="2089" vertical-scroll-proportion="-8.086957">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.gsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="changePasswordAndLoginWithNewPassword.gsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/register/changePasswordAndLoginWithNewPassword.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="7" selection-start="448" selection-end="448" vertical-scroll-proportion="0.5673624">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterCommand.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/groovy/RegisterCommand.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="24" selection-start="1249" selection-end="1249" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/register/register.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="57" selection-start="461" selection-end="461" vertical-scroll-proportion="0.7">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resetPassword.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/register/resetPassword.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="45" selection-start="360" selection-end="360" vertical-scroll-proportion="-4.4680853">
               <folding />
             </state>
           </provider>
@@ -126,22 +179,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$USER_HOME$/.grails/2.2.0/projects/LinkSharing/plugins/kickstart-with-bootstrap-0.9.0/grails-app/i18n/messages.properties" />
-        <option value="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
-        <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/register/index.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/layouts/_content_grid.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/login/auth.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/MySpringSecurityTagLib.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/_menu/_user.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/_menu/_navbar.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/_common/modals/_registerDialog.gsp" />
-        <option value="$PROJECT_DIR$/src/groovy/RegisterCommand.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/LoginController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/_common/modals/_forgotPasswordTextLink.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/kickstart.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/_common/modals/_forgotDialog.gsp" />
+        <option value="$PROJECT_DIR$/src/groovy/CheckEmailCommand.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/ForgotPasswordToken.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/register/forgotPassword.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/SendAsynchronousEmailService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/register/linkExpired.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/register/_forgotPasswordBody.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/register/resetPassword.gsp" />
+        <option value="$PROJECT_DIR$/src/groovy/PasswordCheckCommand.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/RegisterController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/register/register.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/register/changePasswordAndLoginWithNewPassword.gsp" />
       </list>
     </option>
   </component>
@@ -198,6 +251,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -231,6 +286,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linksharing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,148 +615,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-security-core-1.2.7.3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-security-core-1.2.7.3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring-security-core-1.2.7.3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i18n" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'spring-security-core'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kickstart-with-bootstrap-0.9.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kickstart-with-bootstrap-0.9.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kickstart-with-bootstrap-0.9.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kickstart-with-bootstrap-0.9.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kickstart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -702,6 +639,9 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/grails-app/views/_common/modals" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -894,10 +834,9 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39967898" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967898" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -910,12 +849,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21673307" sideWeight="0.60032105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20956175" sideWeight="0.60032105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32807016" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -979,114 +919,130 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.7.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
+    <entry file="file://$USER_HOME$/.grails/2.2.0/projects/LinkSharing/plugins/kickstart-with-bootstrap-0.9.0/grails-app/i18n/messages.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="16" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-2.56">
+        <state line="74" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.33211678">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/ForgotPasswordToken.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="24" selection-start="205" selection-end="205" vertical-scroll-proportion="0.2356021">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/linkExpired.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="40" selection-start="352" selection-end="352" vertical-scroll-proportion="-5.425532">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.springframework/spring-web/jars/spring-web-3.1.2.RELEASE.jar!/org/springframework/web/filter/CharacterEncodingFilter.class">
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/SendAsynchronousEmailService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="19" selection-start="576" selection-end="576" vertical-scroll-proportion="-3.48">
+        <state line="29" column="50" selection-start="966" selection-end="966" vertical-scroll-proportion="0.62020904">
+          <folding>
+            <element signature="e#38#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/_forgotPasswordBody.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="50" selection-start="163" selection-end="163" vertical-scroll-proportion="0.14231499">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.springframework/spring-web/jars/spring-web-3.1.2.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
+    <entry file="jar:///opt/grails-2.2.0/lib/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.2.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="424" selection-end="424" vertical-scroll-proportion="-3.12">
+        <state line="110" column="28" selection-start="6643" selection-end="6643" vertical-scroll-proportion="-3.8">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.springframework/spring-web/jars/spring-web-3.1.2.RELEASE.jar!/org/springframework/web/filter/DelegatingFilterProxy.class">
+    <entry file="jar:///opt/grails-2.2.0/lib/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.2.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="1588" selection-end="1588" vertical-scroll-proportion="-3.12">
+        <state line="107" column="19" selection-start="7018" selection-end="7018" vertical-scroll-proportion="0.1772388">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+    <entry file="jar:///opt/grails-2.2.0/lib/org.springsource.springloaded/springloaded-core/jars/springloaded-core-1.1.1.jar!/org/springsource/loaded/ri/ReflectiveInterceptor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="1300" selection-end="1300" vertical-scroll-proportion="-3.12">
+        <state line="95" column="35" selection-start="7212" selection-end="7212" vertical-scroll-proportion="0.36236933">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/catalina/core/StandardWrapperValve.class">
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="22" selection-start="574" selection-end="574" vertical-scroll-proportion="-3.16">
+        <state line="24" column="68" selection-start="469" selection-end="469" vertical-scroll-proportion="0.25714287">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.grails/2.2.0/projects/LinkSharing/plugins/spring-security-core-1.2.7.3/grails-app/conf/DefaultSecurityConfig.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="27" selection-start="4707" selection-end="4707" vertical-scroll-proportion="0.3602941">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/RegisterCommand.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="24" selection-start="1249" selection-end="1249" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat/tomcat-catalina/jars/tomcat-catalina-7.0.30.jar!/org/apache/catalina/core/StandardContextValve.class">
+    <entry file="file://$PROJECT_DIR$/src/groovy/PasswordCheckCommand.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="22" selection-start="576" selection-end="576" vertical-scroll-proportion="-3.48">
+        <state line="19" column="38" selection-start="400" selection-end="400" vertical-scroll-proportion="0.32718122">
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#80#236#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/register.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/catalina/core/StandardHostValve.class">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/resetPassword.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="17" selection-start="1169" selection-end="1169" vertical-scroll-proportion="-3.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/catalina/valves/ErrorReportValve.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="468" selection-end="468" vertical-scroll-proportion="-3.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/catalina/core/StandardEngineValve.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="548" selection-end="548" vertical-scroll-proportion="-3.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/catalina/connector/CoyoteAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="16" selection-start="1203" selection-end="1203" vertical-scroll-proportion="-3.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat/tomcat-coyote/jars/tomcat-coyote-7.0.30.jar!/org/apache/coyote/http11/AbstractHttp11Processor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="75" selection-start="5167" selection-end="5167" vertical-scroll-proportion="-3.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/coyote/AbstractProtocol.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="79" selection-start="6825" selection-end="6825" vertical-scroll-proportion="-3.48">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/grails-2.2.0/lib/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.30.jar!/org/apache/tomcat/util/net/JIoEndpoint.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="20" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.31071427">
+        <state line="17" column="45" selection-start="360" selection-end="360" vertical-scroll-proportion="-4.4680853">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/RegisterController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="82" selection-start="493" selection-end="660" vertical-scroll-proportion="-8.304348">
+        <state line="68" column="0" selection-start="2089" selection-end="2089" vertical-scroll-proportion="-8.086957">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/register/register.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/register/changePasswordAndLoginWithNewPassword.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="57" selection-start="461" selection-end="461" vertical-scroll-proportion="0.7">
+        <state line="21" column="7" selection-start="448" selection-end="448" vertical-scroll-proportion="0.5673624">
           <folding />
         </state>
       </provider>
@@ -1098,8 +1054,8 @@
         <entry key="LinkSharing">
           <value>
             <GrailsSettings>
-              <option name="buildConfigCrc" value="595833851" />
-              <option name="pluginDependenciesCrc" value="-1733656992" />
+              <option name="buildConfigCrc" value="-1897299721" />
+              <option name="pluginDependenciesCrc" value="-465233799" />
               <option name="properties">
                 <map>
                   <entry key="grails.global.plugins.dir" value="$USER_HOME$/.grails/2.2.0/global-plugins" />

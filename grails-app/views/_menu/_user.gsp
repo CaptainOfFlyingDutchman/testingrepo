@@ -14,8 +14,8 @@
                         <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password"
                                name="j_password">
 
-                        <input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me"
-                               id="remember-me"
+                        <input style="float: left; margin-right: 10px;" type="checkbox" name="_spring_security_remember_me"
+                               id="remember_me" <g:if test='${hasCookie}'>checked='checked'</g:if>
                                value="1">
                         <label class="string optional" for="user_remember_me">Remember me</label>
 
@@ -26,6 +26,7 @@
                 <li class="button-container">
                     <!-- NOTE: the renderDialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
                     <g:render template="/_common/modals/registerTextLink"/>
+                    <g:render template="/_common/modals/forgotPasswordTextLink" />
                 </li>
             </ul>
 

@@ -55,5 +55,6 @@ grails.project.dependency.resolution = {
         compile ":console:1.2"
         compile ":spring-security-core:1.2.7.3"
         compile ":kickstart-with-bootstrap:0.9.0"
+        compile ":asynchronous-mail:1.0-RC3"
     }
 }

@@ -18,8 +18,8 @@
     <g:renderErrors bean="${command}" class="alert alert-info"/>
 
     <g:if test="${!command}">
-        <p>You are automatically signed in. Hurray!!!</p>
-        <h1>Go to <g:link uri="/">home page</g:link></h1>
+        <h1>You are automatically signed in. Hurray!!!</h1>
+        <p>Go to <g:link uri="/">home page</g:link></p>
     </g:if>
 
 </body>
