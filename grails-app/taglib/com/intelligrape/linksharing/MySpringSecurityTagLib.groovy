@@ -8,6 +8,14 @@ import grails.plugins.springsecurity.*
  */
 class MySpringSecurityTagLib extends SecurityTagLib {
 
+    def springSecurityService
 
+    static namespace = "ls"
+
+    def userFirstname = {
+        User user = springSecurityService.currentUser
+
+        out << user.firstName
+    }
 
 }
