@@ -36,7 +36,9 @@
                 <!-- TODO: Only show menu items based on permissions (e.g., Guest has no account page) -->
                 <i class="icon-user icon-large icon-white"></i>
                 %{--${user.firstName}--}%
-                <g:message code="default.user.unknown.label" default="Guest"/> <b class="caret"></b>
+                <sec:username />
+
+                %{--<g:message code="default.user.unknown.label" default="Guest"/> <b class="caret"></b>--}%
             </a>
             <ul class="dropdown-menu" role="menu">
                 <!-- TODO: Only show menu items based on permissions -->
@@ -50,7 +52,7 @@
                 </a></li>
 
                 <li class="divider"></li>
-                <li class=""><a href="${createLink(uri: '/')}">
+                <li class=""><a href="${createLink(uri: '/Logout/index')}">
                     <i class="icon-off"></i>
                     <g:message code="security.signoff.label"/>
                 </a></li>
