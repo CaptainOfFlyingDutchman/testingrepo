@@ -11,6 +11,9 @@ import grails.validation.Validateable
  * To change this template use File | Settings | File Templates.
  */
 
+// TODO :  Remove all of the unnecessary comments, no one want to know who you are, or which idea do you use or which file template
+// TODO :  Remove all comments, that cleans the code.
+
 @Validateable
 class CheckEmailCommand {
     String username

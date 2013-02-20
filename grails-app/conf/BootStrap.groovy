@@ -14,6 +14,8 @@ class BootStrap {
                                         enabled: true,
                                         firstName: "Manvendra", lastName: "Singh", confirmPassword: "a").save(failOnError: true)
 
+        // TODO : Use method Role.findOrCreateBy in code above.
+
         if (!adminUser.authorities.contains(adminRole)) {
             UserRole.create(adminUser, adminRole)
         }

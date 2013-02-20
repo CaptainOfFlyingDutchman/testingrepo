@@ -27,6 +27,9 @@ class RegisterCommand {
     String password
     String confirmPassword
 
+
+    // TODO :  remove unnecessary blank lines in code below, you are not getting paid for LOC
+
     static constraints = {
         username blank: false, unique: true, email: true, validator: { val, obj ->
             if (User.findByUsername(val)) {
