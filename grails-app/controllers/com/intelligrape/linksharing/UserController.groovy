@@ -1,16 +1,30 @@
 package com.intelligrape.linksharing
 
-/**
- * UserController
- * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
- */
 class UserController {
+
+    def springSecurityService
+    def linkSharingService
 
     static defaultAction = "createTopic"
 
     def createTopic() {
-        List visiblityConstants = Visibility.getEnumConstants()
+        List<Visibility> visibilityConstants = Visibility.values()
+        List<Seriousness> seriousnessConstants = Seriousness.values()
 
-        [visiblityConstants:visiblityConstants]
+        User loggedInUser = springSecurityService.currentUser
+
+        [visibilityConstants: visibilityConstants, seriousnessConstants:seriousnessConstants, loggedInUser: loggedInUser]
+    }
+
+
+    def saveTopic(SaveTopicCommand command) {
+        if (command.validate())
+            linkSharingService.createTopic(command.visibility, command.name, command.user)
+
+        redirect action: "listTopics"
+    }
+
+    def listTopics() {
+        [topics: Topic.list()]
     }
 }

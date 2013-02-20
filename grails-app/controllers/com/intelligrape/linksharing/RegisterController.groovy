@@ -1,28 +1,25 @@
 package com.intelligrape.linksharing
 
-import com.intelligrape.linksharing.*
+import org.bouncycastle.bcpg.ElGamalSecretBCPGKey
+import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
 //package linksharing
-// TODO :  remove all unnecessary comments, no one gets paid for LOC these days.
 /**
  * com.intelligrape.linksharing.RegisterController
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
 class RegisterController {
 
-//	static scaffold = true
-
-
     def springSecurityService
-    def sendAsynchronousEmailService
+    def sendAsynchronousMailService
 
-    static defaultAction = "index"
+    LinkGenerator grailsLinkGenerator
 
+    static defaultAction = "resetPassword"
 
-
-    def index = {
+    /*def index = {
         [user: params.user]
-    }
+    }*/
 
     def register(RegisterCommand command) {
         User user
@@ -31,40 +28,55 @@ class RegisterController {
             user.save(flush: true, failOnError: true)
 
             springSecurityService.reauthenticate(user.username, user.password)
-//            redirect(url: "/LinkSharing/j_spring_security_check", params: [j_username:user.username, j_password:user.password])
-//            redirect(controller: "login", action: "auth", params: [j_username:user.username, j_password:user.password])
         } else {
-//            flash.message = "Errors are present in the registration box."
-
             [command: command]
         }
     }
 
     def forgotPassword(CheckEmailCommand command) {
         if (command.validate()) {
+
             User user = User.findByUsername(command.username)
-            String uuid = UUID.randomUUID().toString()
 
-            ForgotPasswordToken forgotPasswordToken = new ForgotPasswordToken(token: uuid, user: user)
-            forgotPasswordToken.save(flush: true, failOnError: true)
+            if (user) {
+                String uuid = UUID.randomUUID().toString()
 
-            println "====================================="
-            println forgotPasswordToken.token
-            println "====================================="
+                ForgotPasswordToken forgotPasswordToken = new ForgotPasswordToken(token: uuid, user: user)
+                forgotPasswordToken.save(flush: true, failOnError: true)
 
+                String subjectText = "Your password"
 
-            sendAsynchronousEmailService.sendAsyncEmail(user, forgotPasswordToken)
+                String url = grailsLinkGenerator.link(controller: 'register', action: 'resetPassword', absolute: true,
+                        base: "http://linksharing-manvendra.qa3.intelligrape.net",
+                        params: [forgotPasswordToken: forgotPasswordToken.token])
+
+                String template = '/register/forgotPasswordBody'
+
+                Map templateModel = [user: user, url: url]
+
+                sendAsynchronousMailService.sendAsynchronousMail(user.username, subjectText, template, templateModel)
+            } else {
+                flash.message = "The specified user doesn't exist in the system."
+
+            }
         } else {
             [command: command]
         }
     }
 
     def resetPassword() {
-        if (!ForgotPasswordToken.findByToken(params.forgotPasswordToken)) {
-            render view: "linkExpired"
-        } else {
-            User tokenUser = ForgotPasswordToken.findByToken(params.forgotPasswordToken).user
-            [tokenUser: tokenUser]
+        try {
+            ForgotPasswordToken forgotPasswordToken = ForgotPasswordToken.findByToken(params.forgotPasswordToken)
+
+            if (!forgotPasswordToken) {
+                render view: "linkExpired"
+            } else {
+                User tokenUser = forgotPasswordToken.user
+                [tokenUser: tokenUser]
+            }
+        } catch (MissingMethodException ex) {
+            String message = "Sorry the page you're looking for doesn't exist."
+            [exceptionMessage: message]
         }
     }
 

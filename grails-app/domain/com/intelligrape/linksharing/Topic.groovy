@@ -11,11 +11,17 @@ class Topic {
 
     static belongsTo = [owner:User]
 
+    static hasMany = [subscriptions:Subscription]
+
     static mapping = {
 
     }
     
 	static constraints = {
     }
-	
+
+    @Override
+    String toString() {
+        return name
+    }
 }

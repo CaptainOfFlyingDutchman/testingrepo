@@ -1,14 +1,14 @@
 package com.intelligrape.linksharing
 
-public enum Visibility {
+public enum Seriousness {
 
-    PRIVATE("Private"),
-    PUBLIC("Public")
-
+    CASUAL("Casual"),
+    SERIOUS("Serious"),
+    VERY_SERIOUS("Very Serious")
 
     private final String name;
 
-    Visibility(String name) {
+    Seriousness (String name) {
         this.name = name
     }
 

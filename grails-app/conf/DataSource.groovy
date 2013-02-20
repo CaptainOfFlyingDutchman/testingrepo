@@ -20,7 +20,7 @@ environments {
     }
     test {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:mysql://localhost:3306/lsdb?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8"
         }
     }

@@ -38,7 +38,7 @@
                 <i class="icon-user icon-large icon-white"></i>
                 %{--${user.firstName}--}%
                 %{--<sec:username />--}%
-                Hi, <ls:userFirstname/>!
+                Hi, <ls:userFirstName/>!
                 %{--<g:message code="default.user.unknown.label" default="Guest"/> <b class="caret"></b>--}%
             </a>
             <ul class="dropdown-menu" role="menu">
