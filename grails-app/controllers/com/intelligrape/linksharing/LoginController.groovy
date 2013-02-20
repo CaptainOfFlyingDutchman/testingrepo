@@ -1,3 +1,5 @@
+package com.intelligrape.linksharing
+
 import grails.converters.JSON
 
 import javax.servlet.http.HttpServletResponse
@@ -52,6 +54,7 @@ class LoginController {
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
 		render view: view, model: [postUrl: postUrl,
 		                           rememberMeParameter: config.rememberMe.parameter]
+
 	}
 
 	/**

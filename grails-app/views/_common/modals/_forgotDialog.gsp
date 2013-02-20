@@ -10,7 +10,7 @@
 		<div class="control-group">
 			<label class="control-label" for="username">${message(code: 'security.email.label', default: 'Email')}</label>
 			<div class="controls">
-				<input type="text" class="span3" name="username" id="username" placeholder="${message(code: 'security.email.label', default: 'Email')}">
+				<input type="email" required="required" class="span3" name="username" id="username" placeholder="${message(code: 'security.email.label', default: 'Email')}">
 			</div>
 		</div>
 

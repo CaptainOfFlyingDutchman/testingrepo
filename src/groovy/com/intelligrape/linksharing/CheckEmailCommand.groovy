@@ -1,3 +1,5 @@
+package com.intelligrape.linksharing
+
 import com.intelligrape.linksharing.*
 import grails.validation.Validateable
 

@@ -1,9 +1,11 @@
+package com.intelligrape.linksharing
+
 import com.intelligrape.linksharing.*
 
 //package linksharing
 
 /**
- * RegisterController
+ * com.intelligrape.linksharing.RegisterController
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
 class RegisterController {

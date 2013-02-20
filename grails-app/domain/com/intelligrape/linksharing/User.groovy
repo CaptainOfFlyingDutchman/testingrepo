@@ -14,6 +14,8 @@ class User {
     String firstName
     String lastName
 
+    static hasMany = [topics:Topic, subscriptions:Subscription]
+
 	static constraints = {
 		username blank: false, unique: true, email: true
 		password blank: false
