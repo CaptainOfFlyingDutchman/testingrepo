@@ -22,6 +22,7 @@ class SendAsynchronousEmailService {
 
     def sendAsyncEmail(User user, ForgotPasswordToken forgotPasswordToken) {
         String url = grailsLinkGenerator.link(controller: 'register', action: 'resetPassword', absolute: true,
+                base: "http://linksharing-manvendra.qa3.intelligrape.net",
                 params: [forgotPasswordToken: forgotPasswordToken.token] )
 
         asynchronousMailService.sendAsynchronousMail {
