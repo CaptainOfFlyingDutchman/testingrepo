@@ -8,34 +8,34 @@
 		<div class="control-group">
 			<label class="control-label" for="firstName">${message(code: 'security.firstname.label', default: 'Firstname')}</label>
 			<div class="controls">
-				<input type="text" class="span3" name="firstName" id="firstName" placeholder="${message(code: 'security.firstname.label', default: 'Firstname')}">
+				<input type="text" required="required" class="span3" name="firstName" id="firstName" placeholder="${message(code: 'security.firstname.label', default: 'Firstname')}">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lastName">${message(code: 'security.lastname.label', default: 'Lastname')}</label>
 			<div class="controls">
-				<input type="text" class="span3" name="lastName" id="lastName" placeholder="${message(code: 'security.lastname.label', default: 'Lastname')}">
+				<input type="text" required="required" class="span3" name="lastName" id="lastName" placeholder="${message(code: 'security.lastname.label', default: 'Lastname')}">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="username">${message(code: 'security.email.label', default: 'Email')}</label>
 			<div class="controls">
-				<input type="text" class="span3" name="username" id="username" placeholder="${message(code: 'security.email.label', default: 'Email')}">
+				<input type="email" required="required" class="span3" name="username" id="username" placeholder="${message(code: 'security.email.label', default: 'Email')}">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="password">${message(code: 'security.password.label', default: 'Password')}</label>
 			<div class="controls">
-				<input type="password" class="span3" name="password" id="password" placeholder="${message(code: 'security.password.label', default: 'Password')}">
+				<input type="password" required="required" class="span3" name="password" id="password" placeholder="${message(code: 'security.password.label', default: 'Password')}">
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="confirmPassword">${message(code: 'security.password.confirm.label', default: 'Confirm')}</label>
 			<div class="controls">
-				<input type="password" class="span3" name="confirmPassword" id="confirmPassword" placeholder="${message(code: 'security.password.confirm.label', default: 'Confirm')}">
+				<input type="password" required="required" class="span3" name="confirmPassword" id="confirmPassword" placeholder="${message(code: 'security.password.confirm.label', default: 'Confirm')}">
 			</div>
 		</div>
-		<div class="control-group">
+		%{--<div class="control-group">
 <%--			<label class="control-label" for="agreement">${message(code: 'security.agreement.label', default: 'I have read and agree with the Terms of Use.')}</label>--%>
 			<div class="controls">
 				<label class="checkbox" for="agreement">
@@ -43,7 +43,7 @@
 					${message(code: 'security.agreement.label', default: 'I have read and agree with the Terms of Use.')}
 				</label>
 			</div>
-		</div>
+		</div>--}%
 	</div>
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-primary"><g:message code="security.register.label"/></button>

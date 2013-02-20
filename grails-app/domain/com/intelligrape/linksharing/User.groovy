@@ -17,10 +17,10 @@ class User {
     static hasMany = [topics:Topic, subscriptions:Subscription]
 
 	static constraints = {
-		username blank: false, unique: true, email: true
-		password blank: false
-        firstName blank: false
         lastName nullable: true
+        username blank: false, unique: true, email: true
+        password blank: false
+        firstName blank: false
 	}
 
 	static mapping = {

@@ -9,9 +9,9 @@
             <ul class="dropdown-menu" role="menu">
                 <li class="form-container">
                     <form action="/LinkSharing/j_spring_security_check" method="post" accept-charset="UTF-8">
-                        <input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username"
+                        <input style="margin-bottom: 15px;" type="email" required="required" placeholder="Username" id="username"
                                name="j_username">
-                        <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password"
+                        <input style="margin-bottom: 15px;" type="password" required="required" placeholder="Password" id="password"
                                name="j_password">
 
                         <input style="float: left; margin-right: 10px;" type="checkbox" name="_spring_security_remember_me"

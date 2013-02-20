@@ -24,14 +24,14 @@
         <div class="control-group">
             <label class="control-label" for="password">${message(code: 'security.password.label', default: 'Password')}</label>
             <div class="controls">
-                <input type="password" class="span3" name="password" id="password" placeholder="${message(code: 'security.password.label', default: 'Password')}">
+                <input type="password" required="required" class="span3" name="password" id="password" placeholder="${message(code: 'security.password.label', default: 'Password')}">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="confirmPassword">${message(code: 'security.password.confirm.label', default: 'Confirm Password')}</label>
             <div class="controls">
-                <input type="password" class="span3" name="confirmPassword" id="confirmPassword" placeholder="${message(code: 'security.password.confirm.label', default: 'Confirm Password')}">
+                <input type="password" required="required" class="span3" name="confirmPassword" id="confirmPassword" placeholder="${message(code: 'security.password.confirm.label', default: 'Confirm Password')}">
             </div>
         </div>
 
