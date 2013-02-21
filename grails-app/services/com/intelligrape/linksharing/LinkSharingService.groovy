@@ -1,9 +1,5 @@
 package com.intelligrape.linksharing
 
-/**
- * LinkSharingService
- * A service class encapsulates the core business logic of a Grails application
- */
 class LinkSharingService {
 
     static transactional = true
@@ -14,11 +10,8 @@ class LinkSharingService {
     }
 
     Topic createTopic(Visibility visibility, String name, User owner) {
-        Topic topic = new Topic(visibility: visibility, name: name, owner: owner)
-        topic.save(flush: true, failOnError: true)
-
-        println topic
-
-        return topic
+        new Topic(visibility: visibility, name: name, owner: owner).save(flush: true, failOnError: true)
     }
+
+
 }

@@ -7,4 +7,5 @@ class SaveTopicCommand {
     Visibility visibility
     String name
     User user
+//    Seriousness seriousness
 }

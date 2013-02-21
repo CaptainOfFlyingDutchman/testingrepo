@@ -13,13 +13,14 @@ class UserController {
 
         User loggedInUser = springSecurityService.currentUser
 
-        [visibilityConstants: visibilityConstants, seriousnessConstants:seriousnessConstants, loggedInUser: loggedInUser]
+        [visibilityConstants: visibilityConstants, seriousnessConstants: seriousnessConstants, loggedInUser: loggedInUser]
     }
 
 
     def saveTopic(SaveTopicCommand command) {
-        if (command.validate())
+        if (command.validate()) {
             linkSharingService.createTopic(command.visibility, command.name, command.user)
+        }
 
         redirect action: "listTopics"
     }
@@ -28,3 +29,4 @@ class UserController {
         [topics: Topic.list()]
     }
 }
+
