@@ -3,11 +3,6 @@ package com.intelligrape.linksharing
 import org.bouncycastle.bcpg.ElGamalSecretBCPGKey
 import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
-//package linksharing
-/**
- * com.intelligrape.linksharing.RegisterController
- * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
- */
 class RegisterController {
 
     def springSecurityService
@@ -16,10 +11,6 @@ class RegisterController {
     LinkGenerator grailsLinkGenerator
 
     static defaultAction = "resetPassword"
-
-    /*def index = {
-        [user: params.user]
-    }*/
 
     def register(RegisterCommand command) {
         User user

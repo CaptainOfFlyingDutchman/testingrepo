@@ -10,8 +10,10 @@ class LinkSharingService {
     }
 
     Topic createTopic(Visibility visibility, String name, User owner) {
-        new Topic(visibility: visibility, name: name, owner: owner).save(flush: true, failOnError: true)
+        return new Topic(visibility: visibility, name: name, owner: owner).save(flush: true, failOnError: true)
     }
 
-
+    Subscription createSubscription(Seriousness seriousness, User subscriber, Topic topic) {
+        return new Subscription(seriousness: seriousness, subscriber: subscriber, topic: topic).save(flush: true, failOnError: true)
+    }
 }

@@ -4,6 +4,7 @@ dataSource {
     username = "root"
     password = "igdefault"
     dilect = org.hibernate.dialect.MySQL5InnoDBDialect
+    //logSql = true
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -14,7 +15,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/lsdb?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8"
         }
     }

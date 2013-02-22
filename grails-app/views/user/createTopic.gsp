@@ -29,12 +29,12 @@
                     </div>
                 </div>
 
-                %{--<div class="control-group">--}%
-                    %{--<label class="control-label"--}%
-                        %{--for="seriousness">${message(code: 'topic.seriousness.label', default: 'Seriousness')}</label>--}%
-                %{--<div class="controls">--}%
-                    %{--<g:select name="seriousness" from="${seriousnessConstants}" optionKey="key" optionValue="value" />--}%
-                %{--</div>--}%
+                <div class="control-group">
+                    <label class="control-label"
+                        for="seriousness">${message(code: 'topic.seriousness.label', default: 'Seriousness')}</label>
+                <div class="controls">
+                    <g:select name="seriousness" from="${seriousnessConstants}" optionKey="key" optionValue="value" />
+                </div>
             </div>
             </div>
 

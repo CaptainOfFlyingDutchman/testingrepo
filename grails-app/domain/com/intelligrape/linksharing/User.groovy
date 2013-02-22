@@ -16,6 +16,7 @@ class User {
 
     static hasMany = [topics:Topic, subscriptions:Subscription]
 
+    static transients = ['fullName']
 	static constraints = {
         lastName nullable: true
         username blank: false, unique: true, email: true
@@ -44,4 +45,8 @@ class User {
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
 	}
+
+    String getFullName() {
+        return firstName + ", " + lastName
+    }
 }

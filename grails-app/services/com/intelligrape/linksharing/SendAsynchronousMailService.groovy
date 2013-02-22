@@ -3,16 +3,10 @@ package com.intelligrape.linksharing
 import grails.gsp.PageRenderer
 import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
-/**
- * SendAsynchronousEmailService
- * A service class encapsulates the core business logic of a Grails application
- */
 class SendAsynchronousMailService {
 
     def asynchronousMailService
     PageRenderer groovyPageRenderer
-    LinkGenerator grailsLinkGenerator
-
 
     static transactional = true
 
