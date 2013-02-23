@@ -1,64 +1,50 @@
 package com.intelligrape.linksharing
 
-import org.codehaus.groovy.grails.web.mapping.LinkGenerator
-
 class UserController {
-
-    def springSecurityService
+    def userService
     def linkSharingService
-    def sendAsynchronousMailService
-    LinkGenerator grailsLinkGenerator
 
-    static defaultAction = "createTopic"
+    static defaultAction = "listTopics"
 
     def createTopic() {
         List<Visibility> visibilityConstants = Visibility.values()
         List<Seriousness> seriousnessConstants = Seriousness.values()
-
-        User loggedInUser = springSecurityService.currentUser
-
+        User loggedInUser = userService.currentUser
         [visibilityConstants: visibilityConstants, seriousnessConstants: seriousnessConstants, loggedInUser: loggedInUser]
     }
-
 
     def saveTopic(SaveTopicCommand command) {
         if (command.validate()) {
             Topic topic = linkSharingService.createTopic(command.visibility, command.name, command.user)
             linkSharingService.createSubscription(command.seriousness, command.user, topic)
         }
-
         redirect action: "listTopics"
     }
 
     def listTopics() {
-        if (springSecurityService.currentUser) {
-            User user = springSecurityService.currentUser
-
+        if (userService.currentUser) {
+            User user = userService.currentUser
             List<Topic> ownedTopics = Topic.findAllByOwner(user)
-
             List<Topic> publicTopics = Topic.createCriteria().list {
                 eq("visibility", Visibility.PUBLIC)
             }
-
             List<Subscription> subscriptions = Subscription.findAllBySubscriber(user)
-
-            [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions]
+            [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user]
         } else {
             render view: "notSignedIn"
         }
-
     }
 
     def unsubscribe() {
         Topic topicForUnsubscribe = Topic.get(params.id)
-        Subscription subscription = Subscription.findByTopicAndSubscriber(topicForUnsubscribe, springSecurityService.currentUser as User)
-        subscription.delete(flush: true)
+        Subscription.findByTopicAndSubscriber(topicForUnsubscribe,
+                userService.currentUser).delete(flush: true)
         redirect action: "listTopics"
     }
 
     def subscribe() {
         Topic topicForSubscription = Topic.get(params.id)
-        User subscribingUser = springSecurityService.currentUser as User
+        User subscribingUser = userService.currentUser
         if (Subscription.findByTopicAndSubscriber(topicForSubscription, subscribingUser)) {
             flash.message = "You're already subscribed to this topic."
             redirect action: "listTopics"
@@ -68,24 +54,17 @@ class UserController {
         redirect action: "listTopics"
     }
 
-    def sendInvite() {
+    def sendInvitation() {
         Topic topicToSendInvitation = Topic.get(params.id)
-        [topicToSendInvitation: topicToSendInvitation, user: springSecurityService.currentUser as User]
+        [topicToSendInvitation: topicToSendInvitation, user: userService.currentUser]
     }
 
     def sendInvitationMail(CheckInvitationsCommand command) {
         if (command.validate()) {
             List<String> emailsList = command.emails.tokenize(",")
             emailsList.each { String emailId ->
-                TopicInvitation topicInvitation = new TopicInvitation(topic: command.topic, email: emailId)
-                topicInvitation.save(flush: true, failOnError: true)
-                String subjectText = "Invitation"
-                String url = grailsLinkGenerator.link(controller: "user", action: "invitationReply", absolute: true,
-                        params: [email: emailId, topic: command.topic.id])
-                String template = "/user/sendInvitationBody"
-                Map templateModel = [url: url, topic: command.topic, user: springSecurityService.currentUser as User, email: emailId]
-
-                sendAsynchronousMailService.sendAsynchronousMail(emailId, subjectText, template, templateModel)
+                userService.generateTopicInvitation(command, emailId)
+                userService.sendInvitationMail(command, emailId)
             }
         } else {
             [command: command]
@@ -112,11 +91,11 @@ class UserController {
 
     def changeTopicSettings() {
         Topic topicToChangeSettings = Topic.get(params.id)
-        User subscriber = springSecurityService.currentUser as User
+        User subscriber = userService.currentUser
         Subscription subscription = Subscription.findByTopicAndSubscriber(topicToChangeSettings, subscriber)
         List<Seriousness> seriousenssConstants = Seriousness.values()
-        [topicToChangeSettings: topicToChangeSettings, subscriber: subscriber, seriousnessConstants: seriousenssConstants
-        ,subscription:subscription]
+        [topicToChangeSettings: topicToChangeSettings, subscriber: subscriber,
+                seriousnessConstants: seriousenssConstants, subscription: subscription]
     }
 
     def saveTopicSettings(SaveTopicSettingsCommand command) {

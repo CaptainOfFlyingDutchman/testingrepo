@@ -1,9 +1,5 @@
 package com.intelligrape.linksharing
 
-/**
- * Topic
- * A domain class describes the data object and it's mapping to the database
- */
 class Topic {
 
     Visibility visibility
@@ -11,7 +7,7 @@ class Topic {
 
     static belongsTo = [owner:User]
 
-    static hasMany = [subscriptions:Subscription]
+    static hasMany = [subscriptions:Subscription, resources:Resource]
 
     static mapping = {
 

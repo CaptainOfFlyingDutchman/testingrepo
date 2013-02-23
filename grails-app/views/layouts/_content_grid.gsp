@@ -10,7 +10,7 @@
 	<!-- Secondary menu in one line (e.g., actions for current controller) -->
 	<div class="row">
 		<div class="span12">
-			%{--<g:render template="/_menu/submenubar"/>--}%
+			<g:render template="/_menu/submenubar"/>
 		</div>
 	</div>
 

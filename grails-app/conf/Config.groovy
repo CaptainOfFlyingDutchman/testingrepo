@@ -118,3 +118,6 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.intelligr
 grails.plugins.springsecurity.authority.className = 'com.intelligrape.linksharing.Role'
 
 grails.config.defaults.locations = [KickstartResources]
+
+// Added by me for overriding the Spring Security behavior:
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/user/listTopics'

@@ -37,7 +37,6 @@
                        for="seriousness">${message(code: "topic.seriousness", default: 'Subscription seriousness')}</label>
 
                 <div class="controls">
-                    ${subscription.seriousness.toString()}
                     <g:select name="seriousness" from="${seriousnessConstants}" optionKey="key" optionValue="value" value="${subscription.seriousness.key}"/>
                 </div>
             </div>

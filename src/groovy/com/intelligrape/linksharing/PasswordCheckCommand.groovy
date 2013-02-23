@@ -3,7 +3,6 @@ package com.intelligrape.linksharing
 import com.intelligrape.linksharing.User
 import grails.validation.Validateable
 
-
 @Validateable
 class PasswordCheckCommand {
     String password
@@ -12,7 +11,6 @@ class PasswordCheckCommand {
 
     static constraints = {
         password blank: false
-
         confirmPassword blank: false, validator: { val, obj ->
             if (!val.equals(obj.password)) {
                 return false

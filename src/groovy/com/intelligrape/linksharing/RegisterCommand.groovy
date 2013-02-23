@@ -3,8 +3,6 @@ package com.intelligrape.linksharing
 import com.intelligrape.linksharing.User
 import grails.validation.Validateable
 import org.springframework.web.method.annotation.InitBinderDataBinderFactory
-//import sun.plugin2.os.windows.FLASHWINFO
-
 import javax.security.auth.callback.ConfirmationCallback
 
 @Validateable
@@ -21,11 +19,9 @@ class RegisterCommand {
                 return false
             }
         }
-
         password blank: false
         firstName blank: false
         lastName nullable: true
-
         confirmPassword validator: { val, obj ->
             if (!val.equals(obj.password))
                 return false
