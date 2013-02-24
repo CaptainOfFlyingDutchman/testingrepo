@@ -10,6 +10,8 @@
                 e.preventDefault();
                 $(this).tab('show')
             })
+
+            $(".dropdown-toggle").dropdown();
         })
     </script>
 </head>
@@ -49,9 +51,10 @@
             </table>
         </div>
 
-        <div class="tab-pane" id="subscribedTopics">
+        <div style="padding-bottom: 50px" class="tab-pane" id="subscribedTopics">
             <table class="table-striped table-hover table table-bordered">
-                <thead><tr><th>Name</th><th>Seriousness</th><th>Send invitation</th><th>Unsubscribe</th></tr></thead>
+                <thead><tr><th>Name</th><th>Seriousness</th><th>Create resource</th><th>Associated resources</th><th>Send invitation</th><th>Unsubscribe</th>
+                </tr></thead>
                 <tbody>
                 <g:each in="${subscriptions}" var="subscription">
                     <tr>
@@ -61,11 +64,28 @@
                         </td>
                         <td>${subscription.seriousness}</td>
                         <td>
-                            <g:link name="sendInvitation" controller="user" action="sendInvitation"
+                            <div class="dropdown">
+                                <a data-target="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                    Add resource <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" area-labelledby="dropdownMenu">
+                                    <li><g:link name="createLinkResource" controller="resource" action="createLinkResource"
+                                                id="${subscription.topic.id}">Create link resource</g:link></li>
+                                    <li><g:link name="createDocumentResource" controller="resource" action="createDocumentResource"
+                                                id="${subscription.topic.id}">Create document resource</g:link></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td>
+                            <g:link controller="resource" action="saveLinkResource" id="${subscription.topic.id}"
+                                name="viewAssociatedResources" class="btn">View</g:link>
+                        </td>
+                        <td>
+                            <g:link class="btn" name="sendInvitation" controller="user" action="sendInvitation"
                                     id="${subscription.topic.id}">Send invitation</g:link>
                         </td>
                         <td>
-                            <g:link name="unsubscribe" controller="user" action="unsubscribe"
+                            <g:link class="btn" name="unsubscribe" controller="user" action="unsubscribe"
                                     id="${subscription.topic.id}">Unsubscribe</g:link>
                         </td>
                     </tr>
@@ -82,7 +102,7 @@
                     <tr>
                         <td>${topic.name}</td>
                         <td>
-                            <g:link name="subscribe" controller="user" action="subscribe"
+                            <g:link class="btn" name="subscribe" controller="user" action="subscribe"
                                     id="${topic.id}">Subscribe</g:link>
                         </td>
                     </tr>

@@ -29,7 +29,7 @@
 
                 <div class="controls">
                     <input type="text" required="required" readonly="readonly" class="span3" name="subscriberName"
-                           id="subscriberName" value="${subscriber.fullName}">
+                           id="subscriberName" value="${subscriber.toString()}">
                 </div>
             </div>
             <div class="control-group">
