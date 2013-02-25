@@ -19,7 +19,7 @@
        			<ul class="nav">
 					<li class="">
                         <g:link name="listTopcs" controller="user" action="listTopics">
-                            <i class="icon-home icon-white"></i>Dashboard</g:link>
+                            <i class="icon-home icon-white"></i> Dashboard</g:link>
 						%{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 		                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">

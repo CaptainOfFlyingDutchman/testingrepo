@@ -77,8 +77,18 @@
                             </div>
                         </td>
                         <td>
-                            <g:link controller="resource" action="saveLinkResource" id="${subscription.topic.id}"
-                                name="viewAssociatedResources" class="btn">View</g:link>
+                            <div class="dropdown">
+                                <a data-target="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                    View resources <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" area-labelledby="dropdownMenu">
+                                    <li><g:link controller="resource" action="viewAssociatedLinkResources" id="${subscription.topic.id}"
+                                                name="viewAssociatedLinkResources">View link resource</g:link></li>
+
+                                    <li><g:link controller="resource" action="viewAssociatedDocumentResources" id="${subscription.topic.id}"
+                                                name="viewAssociatedDocumentResources">View document resource</g:link></li>
+                                </ul>
+                            </div>
                         </td>
                         <td>
                             <g:link class="btn" name="sendInvitation" controller="user" action="sendInvitation"

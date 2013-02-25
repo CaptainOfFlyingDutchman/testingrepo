@@ -1,3 +1,13 @@
+<style type="text/css">
+.nav li.dropdown:hover .login-dropdown{ display: block !important; }
+</style>
+<script type="text/javascript">
+//    $(document).ready(function() {
+//        $(".dropdown-btn").bind("click", function() {
+//            $(this).addClass("login-dropdown")
+//        })
+//    })
+</script>
 <ul class="nav pull-right">
     <li class="dropdown dropdown-btn">
         <sec:ifNotLoggedIn>
@@ -6,7 +16,7 @@
                 <g:message code="security.signin.label"/><b class="caret"></b>
             </a>
 
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu login-dropdown" role="menu">
                 <li class="form-container">
                     <form action="/LinkSharing/j_spring_security_check" method="post" accept-charset="UTF-8">
                         <input style="margin-bottom: 15px;" type="email" required="required" placeholder="Username" id="username"

@@ -9,7 +9,8 @@ class ResourceController {
     }
 
     def createDocumentResource() {
-//        Topic topicToAddResourceTo = Topic.get(params.id)
+        Topic topicToAddResourceTo = Topic.get(params.id)
+        [topicToAddResourceTo:topicToAddResourceTo, creator: userService.currentUser]
     }
 
     def saveLinkResource(SaveLinkResourceCommand command) {
@@ -38,7 +39,13 @@ class ResourceController {
         }
     }
 
-    def viewAssociatedResources() {
-        Topic topicForAssociatedResources = Topic.get(params.id)
+    def viewAssociatedLinkResources() {
+        Topic topicForAssociatedLinkResources = Topic.get(params.id)
+        Set<LinkResource> resources = topicForAssociatedLinkResources.resources
+        [resources:resources, topicForAssociatedLinkResources:topicForAssociatedLinkResources]
+    }
+
+    def viewAssociatedDocumentResources() {
+//        Topic topicForAssociatedDocumentResources = Topic.get(params.id)
     }
 }

@@ -33,14 +33,14 @@ This menu is used to show function that can be triggered on the content (an obje
             <sec:ifLoggedIn>
                 <li>
                     <g:link controller="user" action="createTopic" name="createTopic"><i
-                            class="icon-plus"></i>Create New Topic</g:link>
+                            class="icon-plus"></i> Create New Topic</g:link>
                 </li>
             </sec:ifLoggedIn>
         </g:if>
         <g:if test="${params.action == "createTopic" || params.action == "changeTopicSettings"}">
             <li>
                 <g:link controller="user" action="listTopics" name="listTopics"><i
-                        class="icon-home"></i>Dashboard</g:link>
+                        class="icon-home"></i> Dashboard</g:link>
             </li>
         </g:if>
 
