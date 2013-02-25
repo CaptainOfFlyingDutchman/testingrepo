@@ -2,6 +2,8 @@ package com.intelligrape.linksharing
 
 import grails.validation.Validateable
 
+// TODO-MANVENDRA - Remove unnecessary blank lines.
+
 @Validateable
 class CheckInvitationsCommand {
     String emails

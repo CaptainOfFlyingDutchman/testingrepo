@@ -2,6 +2,7 @@ package com.intelligrape.linksharing
 
 import grails.plugins.springsecurity.*
 
+// TODO-MANVENDRA - Remove unnecessary blank lines.
 class LinkSharingSpringSecurityTagLib extends SecurityTagLib {
 
     def springSecurityService

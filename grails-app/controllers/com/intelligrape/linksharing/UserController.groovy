@@ -6,6 +6,7 @@ class UserController {
 
     static defaultAction = "listTopics"
 
+    // TODO-MANVENDRA - Remove unnecessary blank lines.
     def createTopic() {
         List<Visibility> visibilityConstants = Visibility.values()
         List<Seriousness> seriousnessConstants = Seriousness.values()
@@ -25,6 +26,7 @@ class UserController {
         if (userService.currentUser) {
             User user = userService.currentUser
             List<Topic> ownedTopics = Topic.findAllByOwner(user)
+            // TODO-MANVENDRA - please create a method for criteria code below.
             List<Topic> publicTopics = Topic.createCriteria().list {
                 eq("visibility", Visibility.PUBLIC)
             }
@@ -37,6 +39,7 @@ class UserController {
 
     def unsubscribe() {
         Topic topicForUnsubscribe = Topic.get(params.id)
+        // TODO-MANVENDRA - There should not be any business in controller, move method below.
         Subscription.findByTopicAndSubscriber(topicForUnsubscribe,
                 userService.currentUser).delete(flush: true)
         redirect action: "listTopics"
@@ -45,6 +48,9 @@ class UserController {
     def subscribe() {
         Topic topicForSubscription = Topic.get(params.id)
         User subscribingUser = userService.currentUser
+        // TODO-MANVENDRA - There should not be any business in controller.
+        // TODO-MANVENDRA - There are two redirect and both are redirecting to same action.
+        // TODO-MANVENDRA - please fix.
         if (Subscription.findByTopicAndSubscriber(topicForSubscription, subscribingUser)) {
             flash.message = "You're already subscribed to this topic."
             redirect action: "listTopics"
@@ -62,6 +68,7 @@ class UserController {
     def sendInvitationMail(CheckInvitationsCommand command) {
         if (command.validate()) {
             List<String> emailsList = command.emails.tokenize(",")
+            // TODO-MANVENDRA - Create a method for code below
             emailsList.each { String emailId ->
                 userService.generateTopicInvitation(command, emailId)
                 userService.sendInvitationMail(command, emailId)
@@ -72,6 +79,7 @@ class UserController {
     }
 
     def invitationReply() {
+        // TODO-MANVENDRA - Too many if else, try making it more readable
         Topic topicToSubscribe = Topic.get(params.topic)
         if (topicToSubscribe) {
             TopicInvitation topicInvitation = TopicInvitation.findByTopicAndEmail(topicToSubscribe, params.email)
@@ -99,6 +107,8 @@ class UserController {
     }
 
     def saveTopicSettings(SaveTopicSettingsCommand command) {
+        // TODO-MANVENDRA - 2 different redirects,fix.
+        // TODO-MANVENDRA - And create method for code below,
         if (command.validate()) {
             Subscription subscriptionToChange = Subscription.findByTopicAndSubscriber(command.topic, command.user)
             subscriptionToChange.seriousness = command.seriousness
