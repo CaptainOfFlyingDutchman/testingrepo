@@ -122,3 +122,6 @@ grails.config.defaults.locations = [KickstartResources]
 
 // Added by me for overriding the Spring Security behavior:
 grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/user/listTopics'
+
+// Application configurations
+grails.config.upload.docs.location = "/var/LinkSharing"

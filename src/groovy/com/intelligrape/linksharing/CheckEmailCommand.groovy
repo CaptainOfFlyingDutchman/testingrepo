@@ -1,6 +1,5 @@
 package com.intelligrape.linksharing
 
-import com.intelligrape.linksharing.*
 import grails.validation.Validateable
 
 // TODO-MANVENDRA - Remove unused imports

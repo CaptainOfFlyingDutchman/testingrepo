@@ -5,8 +5,8 @@
     <meta name="layout" content="kickstart"/>
 </head>
 <body>
-<g:uploadForm controller="resource" action="saveLinkResource" class="form-horizontal" method="post"
-        name="save_linkResource_form">
+<g:uploadForm controller="resource" action="saveDocumentResource" class="form-horizontal" method="post"
+        name="save_documentResource_form">
     <div class="modal-body">
         <div class="modal-header">
             <h3><g:message code="resource.create.title"
@@ -53,7 +53,7 @@
             <label class="control-label"
                    for="fileName">${message(code: 'resource.fileName.label', default: 'File')}</label>
             <div class="controls">
-                <input type="file" required="required" class="span3" name="fileName" id="fileName">
+                <input type="file" required="required" class="span3" multiple="multiple" name="fileName" id="fileName">
             </div>
         </div>
     </div>

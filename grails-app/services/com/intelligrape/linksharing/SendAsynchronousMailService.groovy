@@ -1,16 +1,13 @@
 package com.intelligrape.linksharing
 
 import grails.gsp.PageRenderer
-import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
 // TODO-MANVENDRA - Remove unnecessary blank lines.
 class SendAsynchronousMailService {
-
     def asynchronousMailService
     PageRenderer groovyPageRenderer
 
     static transactional = true
-
 
     def sendAsynchronousMail(String email, String subjectText, String template, Map templateModel) {
         asynchronousMailService.sendAsynchronousMail {
@@ -20,6 +17,4 @@ class SendAsynchronousMailService {
                     model: templateModel)
         }
     }
-
-
 }

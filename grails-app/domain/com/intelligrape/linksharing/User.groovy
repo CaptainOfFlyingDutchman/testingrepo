@@ -1,7 +1,6 @@
 package com.intelligrape.linksharing
 
 class User {
-
     transient springSecurityService
 
     String username

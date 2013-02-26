@@ -20,12 +20,7 @@
 					<li class="">
                         <g:link name="listTopcs" controller="user" action="listTopics">
                             <i class="icon-home icon-white"></i> Dashboard</g:link>
-						%{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-		                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-		                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName.substring(c.fullName.lastIndexOf('.')+1)}</g:link></li>
-		                    </g:each>
-						</ul>--}%
+                        <a href="${createLink([controller: "user", action: "listTopics"])}">Dashboard ----</a>
 					</li>
 				</ul>
 

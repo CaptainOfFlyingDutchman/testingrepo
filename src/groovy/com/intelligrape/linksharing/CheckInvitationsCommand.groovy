@@ -13,7 +13,6 @@ class CheckInvitationsCommand {
     static constraints = {
         emails validator: { val, obj ->
             List<String> emailsList = val.tokenize(",")
-
             if (emailsList.find {
                 !(new CheckEmailCommand(username: it)).validate()
             }) {

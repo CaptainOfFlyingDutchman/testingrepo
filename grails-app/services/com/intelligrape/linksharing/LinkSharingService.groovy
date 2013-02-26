@@ -1,7 +1,8 @@
 package com.intelligrape.linksharing
 
-class LinkSharingService {
+import org.springframework.web.multipart.MultipartFile
 
+class LinkSharingService {
     static transactional = true
 
     User createUser(String username, String firstName, String lastName, String password, boolean enabled) {
@@ -15,5 +16,17 @@ class LinkSharingService {
 
     Subscription createSubscription(Seriousness seriousness, User subscriber, Topic topic) {
         return new Subscription(seriousness: seriousness, subscriber: subscriber, topic: topic).save(flush: true, failOnError: true)
+    }
+
+    DocumentResource createDocumentResource(User creator, String title, String summary, Topic topic, MultipartFile file) {
+        try {
+            DocumentResource documentResource = new DocumentResource(creator: creator, title: title, summary: summary,
+                    fileName: file.originalFilename, contentType: file.contentType, topic: topic).save(flush: true, failOnError: true)
+            String uploadPath = Utility.uploadPath + "/" + documentResource.id
+            file.transferTo(new File("${uploadPath}"))
+            return documentResource
+        } catch(Exception e) {
+            throw new RuntimeException("Failed to upload the document.")
+        }
     }
 }

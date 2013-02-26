@@ -1,9 +1,6 @@
 package com.intelligrape.linksharing
 
-import com.intelligrape.linksharing.User
 import grails.validation.Validateable
-import org.springframework.web.method.annotation.InitBinderDataBinderFactory
-import javax.security.auth.callback.ConfirmationCallback
 
 // TODO-MANVENDRA - Remove unused imports, and unnecessary blank lines.
 

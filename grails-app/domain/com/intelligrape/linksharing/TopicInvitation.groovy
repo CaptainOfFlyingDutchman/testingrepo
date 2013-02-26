@@ -1,7 +1,6 @@
 package com.intelligrape.linksharing
 
 class TopicInvitation {
-
     Topic topic
     String email
 

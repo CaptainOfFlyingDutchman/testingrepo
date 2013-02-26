@@ -1,7 +1,6 @@
 package com.intelligrape.linksharing
 
 class Topic {
-
     Visibility visibility
     String name
 

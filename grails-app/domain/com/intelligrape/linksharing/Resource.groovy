@@ -5,15 +5,18 @@ class Resource {
     String title
     String summary
     boolean isRead
+    String className
 
     static belongsTo = [topic: Topic]
 
     static mapping = {
+        className formula: 'CLASS'
     }
 
     static constraints = {
         title unique: "topic"
-        summary maxSize: 1024, blank: true, nullable: true
+        summary nullable: true, blank: true, maxSize: 1024
+        className nullable: true
     }
 
     @Override

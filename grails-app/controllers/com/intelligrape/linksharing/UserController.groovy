@@ -5,7 +5,6 @@ class UserController {
     def linkSharingService
 
     static defaultAction = "listTopics"
-
     // TODO-MANVENDRA - Remove unnecessary blank lines.
     def createTopic() {
         List<Visibility> visibilityConstants = Visibility.values()
@@ -27,9 +26,7 @@ class UserController {
             User user = userService.currentUser
             List<Topic> ownedTopics = Topic.findAllByOwner(user)
             // TODO-MANVENDRA - please create a method for criteria code below.
-            List<Topic> publicTopics = Topic.createCriteria().list {
-                eq("visibility", Visibility.PUBLIC)
-            }
+            List<Topic> publicTopics = userService.publicTopics
             List<Subscription> subscriptions = Subscription.findAllBySubscriber(user)
             [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user]
         } else {
@@ -40,8 +37,7 @@ class UserController {
     def unsubscribe() {
         Topic topicForUnsubscribe = Topic.get(params.id)
         // TODO-MANVENDRA - There should not be any business in controller, move method below.
-        Subscription.findByTopicAndSubscriber(topicForUnsubscribe,
-                userService.currentUser).delete(flush: true)
+        userService.deleteSubscriptionForTopicAndSubscriber(topicForUnsubscribe, userService.currentUser)
         redirect action: "listTopics"
     }
 
@@ -51,7 +47,7 @@ class UserController {
         // TODO-MANVENDRA - There should not be any business in controller.
         // TODO-MANVENDRA - There are two redirect and both are redirecting to same action.
         // TODO-MANVENDRA - please fix.
-        if (Subscription.findByTopicAndSubscriber(topicForSubscription, subscribingUser)) {
+        if (userService.getSubscriptionByTopicAndSubscriber(topicForSubscription,subscribingUser)) {
             flash.message = "You're already subscribed to this topic."
             redirect action: "listTopics"
             return
@@ -69,10 +65,7 @@ class UserController {
         if (command.validate()) {
             List<String> emailsList = command.emails.tokenize(",")
             // TODO-MANVENDRA - Create a method for code below
-            emailsList.each { String emailId ->
-                userService.generateTopicInvitation(command, emailId)
-                userService.sendInvitationMail(command, emailId)
-            }
+            userService.sendMail(emailsList, command)
         } else {
             [command: command]
         }
@@ -110,9 +103,7 @@ class UserController {
         // TODO-MANVENDRA - 2 different redirects,fix.
         // TODO-MANVENDRA - And create method for code below,
         if (command.validate()) {
-            Subscription subscriptionToChange = Subscription.findByTopicAndSubscriber(command.topic, command.user)
-            subscriptionToChange.seriousness = command.seriousness
-            subscriptionToChange.save(flush: true, failOnError: true)
+            userService.saveTopicSettings(command)
             redirect action: "listTopics"
             return
         } else {
@@ -121,6 +112,5 @@ class UserController {
             return
         }
     }
-
 }
 

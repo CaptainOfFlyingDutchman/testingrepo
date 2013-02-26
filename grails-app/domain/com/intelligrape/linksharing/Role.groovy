@@ -1,7 +1,6 @@
 package com.intelligrape.linksharing
 
 class Role {
-
 	String authority
 
 	static mapping = {
