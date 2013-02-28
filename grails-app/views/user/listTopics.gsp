@@ -22,7 +22,6 @@
         <li class="active"><a href="#ownedTopics">Your topics</a></li>
         <li><a href="#subscribedTopics">Subscribed topics</a></li>
         <li><a href="#publicTopics">Public topics</a></li>
-        <li><a href="#readingItems">Reading items</a></li>
     </ul>
 
     <div class="tab-content">
@@ -132,22 +131,7 @@
             </table>
         </div>
 
-        <div class="tab-pane" id="readingItems">
-            <table class="table-striped table-hover table table-bordered">
-                <thead><tr><th>Associated Resource</th><th>Mark read</th></tr></thead>
-                <tbody>
-                <g:each in="${readingItems}" var="readingItem">
-                    <tr>
-                        <td>${readingItem.resource.title}</td>
-                        <td>
-                                <g:link controller="readingItem" action="markRead" name="markRead"
-                                        id="${readingItem.id}">Mark read</g:link>
-                        </td>
-                    </tr>
-                </g:each>
-                </tbody>
-            </table>
-        </div>
+
     </div>
 </div>
 </body>

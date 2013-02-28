@@ -1,8 +1,5 @@
 package com.intelligrape.linksharing
 
-import org.bouncycastle.bcpg.ElGamalSecretBCPGKey
-import org.codehaus.groovy.grails.web.mapping.LinkGenerator
-
 class RegisterController {
 
     def registerService
@@ -14,6 +11,7 @@ class RegisterController {
         if (command.validate()) {
             user = command.registerUser()
             user.save(flush: true, failOnError: true)
+            new UserRole(user:user, role: Role.userRole).save(flush: true, failOnError: true)
             registerService.reauthenticate(user.username, user.password)
         } else {
             [command: command]

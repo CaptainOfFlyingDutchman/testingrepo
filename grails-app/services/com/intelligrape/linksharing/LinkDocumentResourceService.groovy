@@ -19,6 +19,22 @@ class LinkDocumentResourceService {
         }
     }
 
+    boolean deleteDocumentResource(DocumentResource documentResourceToDelete) {
+        if (documentResourceToDelete.creator.equals(userService.currentUser) ||
+                documentResourceToDelete.topic.owner.equals(userService.currentUser)) {
+            try {
+                Integer id = documentResourceToDelete.id
+                documentResourceToDelete.delete(flush: true)
+                new File(Utility.uploadPath + "/" + id).delete()
+            } catch (Exception e) {
+                throw new RuntimeException("Couldn't delete the document resource")
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+
     def createReadingItemForCreatorAndAllSubscribers(Resource resource) {
         CreateReadingItemJob.triggerNow(['resource': resource] as Map)
     }

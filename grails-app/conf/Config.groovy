@@ -80,7 +80,6 @@ environments {
         grails.logging.jul.usebridge = false
         // TODO: uncomment the following line
         // TODO-MANVENDRA - Remove unnecessary commented code and blank lines.
-        // grails.serverURL = "http://linksharing-manvendra.qa3.intelligrape.net"
     }
     test {
         quartz {

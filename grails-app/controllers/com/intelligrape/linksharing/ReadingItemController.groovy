@@ -7,17 +7,22 @@ class ReadingItemController {
 
     // View is passing Resource.id
     def markRead() {
-        ReadingItem readingItem = ReadingItem.findByResourceAndUser(Resource.get(params.id), userService.currentUser)
+        ReadingItem readingItem = readingItemService.getReadingItemByResourceAndUser(params.int("id"))
+        Integer topicIdOfThisResourceOfThisReadingItem = readingItem.resource.topic.id
         readingItem.delete(flush: true)
-//        readingItemService.getReadingItem(params.int("id")).delete(flush: true)
-        redirect controller: "user", action: "listTopics"
+        if (readingItem.resource.className == LinkResource.class.name)
+            redirect controller: "resource", action: "viewAssociatedLinkResources", id: topicIdOfThisResourceOfThisReadingItem
+        else
+            redirect controller: "resource", action: "viewAssociatedDocumentResources", id: topicIdOfThisResourceOfThisReadingItem
     }
 
     // View is passing Resource.id
     def markUnread() {
-//        ReadingItem readingItem = ReadingItem.findByResourceAndUser(Resource.get(params.id), userService.currentUser)
-        linkSharingService.createReadingItem(Resource.get(params.id), userService.currentUser)
-        readingItemService.getReadingItem(params.int("id")).delete(flush: true)
-//        redirect
+        ReadingItem readingItem = linkSharingService.createReadingItem(readingItemService.getResource(params.int("id")),
+                userService.currentUser)
+        if (readingItem.resource.className == LinkResource.class.name)
+            redirect controller: "resource", action: "viewAssociatedLinkResources", id: readingItem.resource.topic.id
+        else
+            redirect controller: "resource", action: "viewAssociatedDocumentResources", id: readingItem.resource.topic.id
     }
 }

@@ -94,6 +94,18 @@ class ResourceController {
     def viewAssociatedDocumentResources() {
         Topic topicForAssociatedDocumentResources = Topic.get(params.id)
         List<DocumentResource> resources = DocumentResource.findAllByTopic(topicForAssociatedDocumentResources)
-        [resources: resources, topicForAssociatedDocumentResources: topicForAssociatedDocumentResources]
+        List<ReadingItem> readingItems = ReadingItem.findAllByUser(userService.currentUser)
+        [resources: resources, topicForAssociatedDocumentResources: topicForAssociatedDocumentResources,
+                    readingItems: readingItems]
+    }
+
+    def deleteDocumentResource() {
+        DocumentResource documentResourceToDelete  = DocumentResource.get(params.id)
+        if (linkDocumentResourceService.deleteDocumentResource(documentResourceToDelete)) {
+            redirect action: "viewAssociatedDocumentResources", id: documentResourceToDelete.topic.id
+        } else {
+            flash.message = "You're not authorized to delete this document resource."
+            redirect action: "viewAssociatedDocumentResources", id: documentResourceToDelete.topic.id
+        }
     }
 }
