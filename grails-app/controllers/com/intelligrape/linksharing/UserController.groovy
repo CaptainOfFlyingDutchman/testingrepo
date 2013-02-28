@@ -29,8 +29,17 @@ class UserController {
             List<Topic> publicTopics = userService.publicTopics
             List<Subscription> subscriptions = Subscription.findAllBySubscriber(user)
             List<ReadingItem> readingItems = userService.readingItems
-            [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user,
-                        readingItems:readingItems]
+
+            if (UserRole.findByUserAndRole(userService.currentUser, Role.adminRole)) {
+                List<Resource> allResources = Resource.list()
+                List<Topic> allTopics = Topic.list()
+                [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user,
+                        readingItems: readingItems, allResources: allResources, allTopics: allTopics]
+
+            } else {
+                [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user,
+                        readingItems: readingItems]
+            }
         } else {
             render view: "notSignedIn"
         }
@@ -49,7 +58,7 @@ class UserController {
         // TODO-MANVENDRA - There should not be any business in controller.
         // TODO-MANVENDRA - There are two redirect and both are redirecting to same action.
         // TODO-MANVENDRA - please fix.
-        if (userService.getSubscriptionByTopicAndSubscriber(topicForSubscription,subscribingUser)) {
+        if (userService.getSubscriptionByTopicAndSubscriber(topicForSubscription, subscribingUser)) {
             flash.message = "You're already subscribed to this topic."
             redirect action: "listTopics"
             return

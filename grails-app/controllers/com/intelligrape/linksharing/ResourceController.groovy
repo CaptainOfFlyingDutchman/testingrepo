@@ -48,11 +48,6 @@ class ResourceController {
     }
 
     def deleteLinkResource() {
-        println "============================================="
-        println params
-        println LinkResource.get(params.id).title
-        println "============================================="
-
         LinkResource linkResourceToDelete  = LinkResource.get(params.id)
         if (linkDocumentResourceService.deleteLinkResource(linkResourceToDelete)) {
             redirect action: "viewAssociatedLinkResources", id: linkResourceToDelete.topic.id

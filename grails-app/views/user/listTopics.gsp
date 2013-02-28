@@ -22,6 +22,10 @@
         <li class="active"><a href="#ownedTopics">Your topics</a></li>
         <li><a href="#subscribedTopics">Subscribed topics</a></li>
         <li><a href="#publicTopics">Public topics</a></li>
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <li><a href="#allTopics">All topics</a></li>
+            <li><a href="#allResources">All resources</a></li>
+        </sec:ifAnyGranted>
     </ul>
 
     <div class="tab-content">
@@ -38,6 +42,8 @@
                             <g:if test="${Subscription.findBySubscriberAndTopic(user, topic)}">
                                 <g:link name="unsubscribe" controller="user" action="unsubscribe"
                                         id="${topic.id}">Unsubscribe</g:link>
+                                <div class="normal"
+                                <bs:checkBox name="unsubscribe" onLabel="Subscribe" offLabel="Unsubscribe"></bs:checkBox>
                             </g:if>
                             <g:else>
                                 <g:link name="subscribe" controller="user" action="subscribe"
@@ -131,7 +137,62 @@
             </table>
         </div>
 
+        <sec:ifAnyGranted roles="ROLE_ADMIN">
+            <div class="tab-pane" id="allTopics">
+                <table class="table-striped table-hover table table-bordered">
+                    <thead><tr><th>Name</th><th>Visibility</th><th>Creator</th><th>Delete</th></tr></thead>
+                    <tbody>
+                    <g:each in="${allTopics}" var="topic">
+                        <tr>
+                            <td>${topic.name}</td>
+                            <td>${topic.visibility.value}</td>
+                            <td>${topic.owner.toString()}</td>
+                            <td>
+                                <g:link class="btn btn-small btn-danger" name="deleteTopic" controller="user"
+                                        action="deleteTopic"
+                                        id="${topic.id}">Delete</g:link>
+                            </td>
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+            </div>
 
+            <div class="tab-pane" id="allResources">
+                <table class="table-striped table-hover table table-bordered">
+                    <thead><tr><th>Title</th><th>Topic</th><th>Summary</th><th>Creator</th>
+                        <th>Type</th><th>Delete</th></tr></thead>
+                    <tbody>
+                    <g:each in="${allResources}" var="resource">
+                        <tr>
+                            <td>${resource.title}</td>
+                            <td>${resource.topic.name}</td>
+                            <td>${resource.summary}</td>
+                            <td>${resource.creator.toString()}</td>
+                            <td>
+                                <g:if test="${resource.className == LinkResource.class.name}">
+                                    <span><a class="btn btn-small btn-primary"
+                                             style="width: 55px;"
+                                             href="${resource.url}" title="Go to ${resource.url}">Link</a></span>
+                                </g:if>
+                                <g:else>
+                                    <span>
+                                    <g:link controller="resource" action="downloadDocumentResource"
+                                            name="downloadDocumentResource" id="${resource.id}"
+                                            title="Download ${resource.fileName}" class="btn btn-small btn-primary">Document</g:link></span>
+                                </g:else>
+                            </td>
+                            <td>
+                                <g:link class="btn btn-small btn-danger" name="deleteTopic" controller="resource"
+                                        action="deleteLinkResource"
+                                        id="${resource.id}">Delete</g:link>
+                            </td>
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+            </div>
+        </sec:ifAnyGranted>
     </div>
 </div>
 </body>

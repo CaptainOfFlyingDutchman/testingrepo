@@ -25,7 +25,8 @@
                     <td>
                         <g:if test="${resource in readingItems.resource}">
                             <g:link controller="readingItem" action="markRead" name="markRead"
-                                    id="${resource.id}" class="btn btn-small btn-info">Mark read</g:link>
+                                    id="${resource.id}" class="btn btn-small btn-info"
+                                    style="width: 69px">Mark read</g:link>
                         </g:if>
                         <g:else>
                             <g:link controller="readingItem" action="markUnread" name="markUnread"
