@@ -86,6 +86,7 @@ environments {
         quartz {
             autoStartup = true
         }
+        grails.serverURL = "http://linksharing-manvendra.qa3.intelligrape.net"
     }
 }
 
