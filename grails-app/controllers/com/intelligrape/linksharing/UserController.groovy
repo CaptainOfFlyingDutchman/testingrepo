@@ -28,7 +28,9 @@ class UserController {
             // TODO-MANVENDRA - please create a method for criteria code below.
             List<Topic> publicTopics = userService.publicTopics
             List<Subscription> subscriptions = Subscription.findAllBySubscriber(user)
-            [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user]
+            List<ReadingItem> readingItems = userService.readingItems
+            [ownedTopics: ownedTopics, publicTopics: publicTopics, subscriptions: subscriptions, user: user,
+                        readingItems:readingItems]
         } else {
             render view: "notSignedIn"
         }
@@ -111,6 +113,11 @@ class UserController {
             redirect action: "changeTopicSettings", params: [id: command.topic.id]
             return
         }
+    }
+
+    def deleteTopic() {
+        Topic.get(params.id).delete(flush: true)
+        redirect action: "listTopics"
     }
 }
 

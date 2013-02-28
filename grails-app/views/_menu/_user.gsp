@@ -1,5 +1,5 @@
 <style type="text/css">
-.nav li.dropdown:hover .login-dropdown{ display: block !important; }
+/*.nav li.dropdown:hover .login-dropdown{ display: block !important; }*/
 </style>
 <script type="text/javascript">
 //    $(document).ready(function() {

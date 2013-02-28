@@ -4,9 +4,9 @@ class Resource {
     User creator
     String title
     String summary
-    boolean isRead
     String className
 
+    static hasMany = [readingItems: ReadingItem]
     static belongsTo = [topic: Topic]
 
     static mapping = {

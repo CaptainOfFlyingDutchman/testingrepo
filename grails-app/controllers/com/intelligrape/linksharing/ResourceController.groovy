@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile
 class ResourceController {
     def userService
     def linkSharingService
+    def linkDocumentResourceService
 
     def createLinkResource() {
         Topic topicToAddResourceTo = Topic.get(params.id)
@@ -13,8 +14,9 @@ class ResourceController {
 
     def saveLinkResource(SaveLinkResourceCommand command) {
         if (command.validate()) {
-            LinkResource linkResource = new LinkResource(creator: command.creator, title: command.title, summary: command.summary,
-                    url: command.url, topic: command.topic).save(flush: true, failOnError: true)
+            LinkResource linkResource = linkSharingService.createLinkResource(command.creator, command.title, command.summary,
+                    command.url, command.topic)
+            linkDocumentResourceService.createReadingItemForCreatorAndAllSubscribers(linkResource)
             redirect action: "linkResourceDetails", params: [id: linkResource.id]
         }
     }
@@ -40,7 +42,24 @@ class ResourceController {
     def viewAssociatedLinkResources() {
         Topic topicForAssociatedLinkResources = Topic.get(params.id)
         List<LinkResource> resources = LinkResource.findAllByTopic(topicForAssociatedLinkResources)
-        [resources: resources, topicForAssociatedLinkResources: topicForAssociatedLinkResources]
+        List<ReadingItem> readingItems = ReadingItem.findAllByUser(userService.currentUser)
+        [resources: resources, topicForAssociatedLinkResources: topicForAssociatedLinkResources,
+                readingItems:readingItems]
+    }
+
+    def deleteLinkResource() {
+        println "============================================="
+        println params
+        println LinkResource.get(params.id).title
+        println "============================================="
+
+        LinkResource linkResourceToDelete  = LinkResource.get(params.id)
+        if (linkDocumentResourceService.deleteLinkResource(linkResourceToDelete)) {
+            redirect action: "viewAssociatedLinkResources", id: linkResourceToDelete.topic.id
+        } else {
+            flash.message = "You're not authorized to delete this link resource."
+            redirect action: "viewAssociatedLinkResources", id: linkResourceToDelete.topic.id
+        }
     }
 
     def createDocumentResource() {
@@ -53,6 +72,7 @@ class ResourceController {
             MultipartFile file = request.getFile('fileName')
             DocumentResource documentResource = linkSharingService.createDocumentResource(command.creator, command.title,
                     command.summary, command.topic, file)
+            linkDocumentResourceService.createReadingItemForCreatorAndAllSubscribers(documentResource)
             redirect action: "documentResourceDetails", params: [id: documentResource.id]
         }
     }

@@ -40,6 +40,10 @@ class UserService {
         return publicTopics
     }
 
+    List<ReadingItem> getReadingItems() {
+        return ReadingItem.findAllByUser(currentUser)
+    }
+
     def deleteSubscriptionForTopicAndSubscriber(Topic forTopic, User subscriber) {
         getSubscriptionByTopicAndSubscriber(forTopic, subscriber).delete(flush: true)
     }

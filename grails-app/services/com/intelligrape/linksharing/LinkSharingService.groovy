@@ -18,6 +18,11 @@ class LinkSharingService {
         return new Subscription(seriousness: seriousness, subscriber: subscriber, topic: topic).save(flush: true, failOnError: true)
     }
 
+    LinkResource createLinkResource(User creator, String title, String summary, String url, Topic topic) {
+        return new LinkResource(creator: creator, title: title, summary: summary,
+                url: url, topic: topic).save(flush: true, failOnError: true)
+    }
+
     DocumentResource createDocumentResource(User creator, String title, String summary, Topic topic, MultipartFile file) {
         try {
             DocumentResource documentResource = new DocumentResource(creator: creator, title: title, summary: summary,
@@ -25,8 +30,12 @@ class LinkSharingService {
             String uploadPath = Utility.uploadPath + "/" + documentResource.id
             file.transferTo(new File("${uploadPath}"))
             return documentResource
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException("Failed to upload the document.")
         }
+    }
+
+    ReadingItem createReadingItem(Resource resource, User user) {
+        return new ReadingItem(resource: resource, user: user).save(flush: true, failOnError: true)
     }
 }

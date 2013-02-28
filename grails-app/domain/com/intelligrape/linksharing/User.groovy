@@ -12,10 +12,10 @@ class User {
 
     String firstName
     String lastName
-
-    static hasMany = [topics: Topic, subscriptions: Subscription]
-
     static transients = ['fullName']
+
+    static hasMany = [topics: Topic, subscriptions: Subscription, readingItems: ReadingItem]
+
     static constraints = {
         lastName nullable: true
         username blank: false, unique: true, email: true

@@ -20,7 +20,6 @@
 					<li class="">
                         <g:link name="listTopcs" controller="user" action="listTopics">
                             <i class="icon-home icon-white"></i> Dashboard</g:link>
-                        <a href="${createLink([controller: "user", action: "listTopics"])}">Dashboard ----</a>
 					</li>
 				</ul>
 
