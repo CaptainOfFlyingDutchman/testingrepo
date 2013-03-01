@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <script type="text/javascript" src="${resource(dir: "js", file: "application.js")}"></script>
     <link rel="shortcut icon" href="${resource(plugin: 'kickstart-with-bootstrap', dir: 'images', file: 'favicon.ico')}"
           type="image/x-icon"/>
 
@@ -21,7 +21,6 @@
     <r:require modules="jquery"/>
     <r:require modules="${session.skin ? session.skin : 'bootstrap'}"/>
     <r:require modules="${session.skin ? session.skin + '_utils' : 'bootstrap_utils'}"/>
-
     <r:layoutResources/>
     <g:layoutHead/>
 

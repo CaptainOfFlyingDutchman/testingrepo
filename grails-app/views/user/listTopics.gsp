@@ -17,10 +17,10 @@
 
         function makeToggleSubscribeButtons(buttonIdToToggle, subscribed) {
             if (subscribed == true) {
-                $(".btn-group a[href=/LinkSharing/user/subscribe/" + buttonIdToToggle + "]").button('toggle');
+                $(".btn-group a[href='/LinkSharing/user/subscribe/" + buttonIdToToggle + "']").button('toggle');
                 var subscribeLink = $(".btn-group a").attr("/LinkSharing/user/subscribe/" + buttonIdToToggle)
             } else {
-                $(".btn-group a[href=/LinkSharing/user/unsubscribe/" + buttonIdToToggle + "]").button('toggle');
+                $(".btn-group a[href='/LinkSharing/user/unsubscribe/" + buttonIdToToggle + "']").button('toggle');
                 var unsubscribeLink = $(".btn-group a").attr("/LinkSharing/user/subscribe/" + buttonIdToToggle)
             }
         }
@@ -51,32 +51,27 @@
                         </td>
                         <td>
                             <div class="btn-group" data-toggle="buttons-radio">
-                                <g:link class="btn btn-small btn-primary" name="unsubscribe"
+                                <g:link class="btn btn-small btn-info" name="unsubscribe"
                                         controller="user" action="unsubscribe"
                                         id="${topic.id}">Unsubscribe</g:link>
                                 <g:link class="btn btn-small btn-primary" name="subscribe"
                                         controller="user" action="subscribe"
                                         id="${topic.id}">Subscribe</g:link>
-                                <g:if test="${topic in topic.subscriptions.topic}">
-                                    <script type="text/javascript">
-                                        makeToggleSubscribeButtons("${topic.id}", true)
-                                    </script>
-                                </g:if>
-                                <g:else>
-                                    <script type="text/javascript">
-                                        makeToggleSubscribeButtons("${topic.id}", false)
-                                    </script>
-                                </g:else>
                             </div>
-                            %{--<g:if test="${Subscription.findBySubscriberAndTopic(user, topic)}">
-                            <g:link name="unsubscribe" controller="user" action="unsubscribe"
-                            id="${topic.id}">Unsubscribe</g:link>
-                            <div class="normal"
+                            <g:if test="${Subscription.findBySubscriberAndTopic(user, topic)}">
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        makeToggleSubscribeButtons("${topic.id}", true);
+                                    })
+                                </script>
                             </g:if>
                             <g:else>
-                            <g:link name="subscribe" controller="user" action="subscribe"
-                            id="${topic.id}">Subscribe</g:link>
-                            </g:else>--}%
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        makeToggleSubscribeButtons("${topic.id}", false);
+                                    })
+                                </script>
+                            </g:else>
                         </td>
                         <td>
                             <g:link controller="user" action="deleteTopic" name="deleteTopic"
@@ -90,13 +85,14 @@
 
         <div style="padding-bottom: 50px" class="tab-pane" id="subscribedTopics">
             <table class="table-striped table-hover table table-bordered">
-                <thead><tr><th>Name</th><th>Seriousness</th><th>Create resource</th><th>Associated resources</th><th>Send invitation</th><th>Unsubscribe</th>
+                <thead><tr><th>Name</th><th>Seriousness</th><th>Create resource</th><th>Associated resources</th>
+                    <th>Send invitation</th><th>Unsubscribe</th><th>Change settings</th>
                 </tr></thead>
                 <tbody>
                 <g:each in="${subscriptions}" var="subscription">
                     <tr>
                         <td>
-                            <g:link name="topicSettings" controller="user" action="changeTopicSettings"
+                            <g:link name="topicSettings" controller="user" action="topicDetails"
                                     id="${subscription.topic.id}">${subscription.topic}</g:link>
                         </td>
                         <td>${subscription.seriousness}</td>
@@ -140,6 +136,11 @@
                             <g:link class="btn btn-small btn-info" name="unsubscribe" controller="user"
                                     action="unsubscribe"
                                     id="${subscription.topic.id}">Unsubscribe</g:link>
+                        </td>
+                        <td>
+                            <g:link name="topicSettings" controller="user" action="changeTopicSettings"
+                                    class="btn btn-small btn-inverse"
+                                    id="${subscription.topic.id}">Settings</g:link>
                         </td>
                     </tr>
                 </g:each>
@@ -224,5 +225,11 @@
         </sec:ifAnyGranted>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        fadeMeOut()
+    })
+</script>
 </body>
 </html>

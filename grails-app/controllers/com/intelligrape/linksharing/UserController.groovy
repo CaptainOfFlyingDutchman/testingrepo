@@ -46,15 +46,15 @@ class UserController {
     }
 
     def unsubscribe() {
-        /*Topic topicForUnsubscribe = Topic.get(params.id)
+        Topic topicForUnsubscribe = Topic.get(params.id)
         // TODO-MANVENDRA - There should not be any business in controller, move method below.
         userService.deleteSubscriptionForTopicAndSubscriber(topicForUnsubscribe, userService.currentUser)
-        redirect action: "listTopics"*/
-        render "unsubscribe"
+        flash.message = "You've successfully unsubscribed the topic."
+        redirect action: "listTopics"
     }
 
     def subscribe() {
-        /*Topic topicForSubscription = Topic.get(params.id)
+        Topic topicForSubscription = Topic.get(params.id)
         User subscribingUser = userService.currentUser
         // TODO-MANVENDRA - There should not be any business in controller.
         // TODO-MANVENDRA - There are two redirect and both are redirecting to same action.
@@ -65,8 +65,8 @@ class UserController {
             return
         }
         linkSharingService.createSubscription(Seriousness.SERIOUS, subscribingUser, topicForSubscription)
-        redirect action: "listTopics"*/
-        render "subscribe"
+        flash.message = "You've successfully subscribed the topic."
+        redirect action: "listTopics"
     }
 
     def sendInvitation() {
@@ -141,6 +141,12 @@ class UserController {
     def deleteTopic() {
         Topic.get(params.id).delete(flush: true)
         redirect action: "listTopics"
+    }
+
+    def topicDetails() {
+        Topic topic = Topic.get(params.id)
+        List<Resource> resources = Resource.findAllByTopic(topic)
+        [topic: topic, resources: resources]
     }
 }
 
