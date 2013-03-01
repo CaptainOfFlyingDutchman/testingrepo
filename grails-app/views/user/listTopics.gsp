@@ -12,7 +12,18 @@
             })
 
             $(".dropdown-toggle").dropdown();
+            $(".btn-group").button();
         })
+
+        function makeToggleSubscribeButtons(buttonIdToToggle, subscribed) {
+            if (subscribed == true) {
+                $(".btn-group a[href=/LinkSharing/user/subscribe/" + buttonIdToToggle + "]").button('toggle');
+                var subscribeLink = $(".btn-group a").attr("/LinkSharing/user/subscribe/" + buttonIdToToggle)
+            } else {
+                $(".btn-group a[href=/LinkSharing/user/unsubscribe/" + buttonIdToToggle + "]").button('toggle');
+                var unsubscribeLink = $(".btn-group a").attr("/LinkSharing/user/subscribe/" + buttonIdToToggle)
+            }
+        }
     </script>
 </head>
 
@@ -31,7 +42,7 @@
     <div class="tab-content">
         <div class="tab-pane active" id="ownedTopics">
             <table class="table-striped table-hover table table-bordered">
-                <thead><tr><th>Name</th> <th>Subscribe/Unsubscribe</th><th>Delete</th></tr></thead>
+                <thead><tr><th>Name</th> <th>Unsubscribe/Subscribe</th><th>Delete</th></tr></thead>
                 <tbody>
                 <g:each in="${ownedTopics}" var="topic">
                     <tr>
@@ -39,16 +50,33 @@
                             ${topic.name}
                         </td>
                         <td>
-                            <g:if test="${Subscription.findBySubscriberAndTopic(user, topic)}">
-                                <g:link name="unsubscribe" controller="user" action="unsubscribe"
+                            <div class="btn-group" data-toggle="buttons-radio">
+                                <g:link class="btn btn-small btn-primary" name="unsubscribe"
+                                        controller="user" action="unsubscribe"
                                         id="${topic.id}">Unsubscribe</g:link>
-                                <div class="normal"
-                                <bs:checkBox name="unsubscribe" onLabel="Subscribe" offLabel="Unsubscribe"></bs:checkBox>
+                                <g:link class="btn btn-small btn-primary" name="subscribe"
+                                        controller="user" action="subscribe"
+                                        id="${topic.id}">Subscribe</g:link>
+                                <g:if test="${topic in topic.subscriptions.topic}">
+                                    <script type="text/javascript">
+                                        makeToggleSubscribeButtons("${topic.id}", true)
+                                    </script>
+                                </g:if>
+                                <g:else>
+                                    <script type="text/javascript">
+                                        makeToggleSubscribeButtons("${topic.id}", false)
+                                    </script>
+                                </g:else>
+                            </div>
+                            %{--<g:if test="${Subscription.findBySubscriberAndTopic(user, topic)}">
+                            <g:link name="unsubscribe" controller="user" action="unsubscribe"
+                            id="${topic.id}">Unsubscribe</g:link>
+                            <div class="normal"
                             </g:if>
                             <g:else>
-                                <g:link name="subscribe" controller="user" action="subscribe"
-                                        id="${topic.id}">Subscribe</g:link>
-                            </g:else>
+                            <g:link name="subscribe" controller="user" action="subscribe"
+                            id="${topic.id}">Subscribe</g:link>
+                            </g:else>--}%
                         </td>
                         <td>
                             <g:link controller="user" action="deleteTopic" name="deleteTopic"
@@ -177,9 +205,10 @@
                                 </g:if>
                                 <g:else>
                                     <span>
-                                    <g:link controller="resource" action="downloadDocumentResource"
-                                            name="downloadDocumentResource" id="${resource.id}"
-                                            title="Download ${resource.fileName}" class="btn btn-small btn-primary">Document</g:link></span>
+                                        <g:link controller="resource" action="downloadDocumentResource"
+                                                name="downloadDocumentResource" id="${resource.id}"
+                                                title="Download ${resource.fileName}"
+                                                class="btn btn-small btn-primary">Document</g:link></span>
                                 </g:else>
                             </td>
                             <td>

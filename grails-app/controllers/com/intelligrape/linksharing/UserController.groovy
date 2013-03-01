@@ -46,14 +46,15 @@ class UserController {
     }
 
     def unsubscribe() {
-        Topic topicForUnsubscribe = Topic.get(params.id)
+        /*Topic topicForUnsubscribe = Topic.get(params.id)
         // TODO-MANVENDRA - There should not be any business in controller, move method below.
         userService.deleteSubscriptionForTopicAndSubscriber(topicForUnsubscribe, userService.currentUser)
-        redirect action: "listTopics"
+        redirect action: "listTopics"*/
+        render "unsubscribe"
     }
 
     def subscribe() {
-        Topic topicForSubscription = Topic.get(params.id)
+        /*Topic topicForSubscription = Topic.get(params.id)
         User subscribingUser = userService.currentUser
         // TODO-MANVENDRA - There should not be any business in controller.
         // TODO-MANVENDRA - There are two redirect and both are redirecting to same action.
@@ -64,7 +65,8 @@ class UserController {
             return
         }
         linkSharingService.createSubscription(Seriousness.SERIOUS, subscribingUser, topicForSubscription)
-        redirect action: "listTopics"
+        redirect action: "listTopics"*/
+        render "subscribe"
     }
 
     def sendInvitation() {
@@ -93,12 +95,24 @@ class UserController {
                     render view: "notALinkSharingUser"
                 } else {
                     topicInvitation.delete(flush: true)
-                    redirect action: "subscribe", params: [id: topicToSubscribe.id]
+                    redirect action: "invitationSubscribe", params: [id: topicToSubscribe.id, userId: user.id]
                 }
             } else {
                 render view: "/register/linkExpired"
             }
         }
+    }
+
+    def invitationSubscribe() {
+        Topic topicForSubscription = Topic.get(params.id)
+        User subscribingUser = User.get(params.userId)
+        if (userService.getSubscriptionByTopicAndSubscriber(topicForSubscription, subscribingUser)) {
+            flash.message = "You're already subscribed to this topic."
+            redirect action: "listTopics"
+            return
+        }
+        linkSharingService.createSubscription(Seriousness.SERIOUS, subscribingUser, topicForSubscription)
+        redirect action: "listTopics"
     }
 
     def changeTopicSettings() {
