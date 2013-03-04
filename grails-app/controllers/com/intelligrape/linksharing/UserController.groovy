@@ -15,7 +15,7 @@ class UserController {
 
     def saveTopic(SaveTopicCommand command) {
         if (command.validate()) {
-            Topic topic = linkSharingService.createTopic(command.visibility, command.name, command.user)
+            Topic topic = linkSharingService.createTopic(command.visibility, command.name, command.user, command.summary)
             linkSharingService.createSubscription(command.seriousness, command.user, topic)
         }
         redirect action: "listTopics"

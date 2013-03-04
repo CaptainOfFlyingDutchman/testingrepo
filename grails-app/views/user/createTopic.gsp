@@ -42,6 +42,15 @@
                     <g:select name="seriousness" from="${seriousnessConstants}" optionKey="key" optionValue="value"/>
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label"
+                       for="summary">${message(code: 'topic.summary.label', default: 'Summary')}</label>
+
+                <div class="controls">
+                    <textarea id="summary" name="summary" required="required" rows="7"
+                        placeholder="Required summary"></textarea>
+                </div>
+            </div>
         </div>
 
         <div class="modal-footer">

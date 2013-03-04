@@ -121,7 +121,7 @@ grails.plugins.springsecurity.authority.className = 'com.intelligrape.linksharin
 grails.config.defaults.locations = [KickstartResources]
 
 // Added by me for overriding the Spring Security behavior:
-grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/user/listTopics'
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/'
 
 // Application configurations
 grails.config.upload.docs.location = "/var/LinkSharing"

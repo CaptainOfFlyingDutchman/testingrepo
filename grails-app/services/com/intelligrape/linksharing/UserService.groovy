@@ -40,6 +40,26 @@ class UserService {
         return publicTopics
     }
 
+    List<Topic> getLatestTopics() {
+        List<Topic> latestTopics = Topic.createCriteria().list {
+            order("dateCreated", "desc")
+        }
+    }
+
+    // This will return a list which contains another list each containing Topic, and an integer
+    List getHotTopics() {
+        List hotTopics = Topic.createCriteria().list {
+            projections {
+                subscriptions {
+                    groupProperty('topic')
+                    count("topic", "count")
+                }
+            }
+            order("count", "desc")
+        }
+        return hotTopics
+    }
+
     List<ReadingItem> getReadingItems() {
         return ReadingItem.findAllByUser(currentUser)
     }
