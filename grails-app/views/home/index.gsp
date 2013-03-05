@@ -40,26 +40,29 @@
                     <table class="table">
                         <thead><tr><th>Name</th></tr></thead>
                         <tbody>
-                        %{--<g:each in="${hotTopics}" var="topic">
+                        <g:each in="${hotTopics}" var="topic">
                             <tr>
                                 <td>
-                                    --}%%{--<span style="{display: block}">--}%%{--
-                                        --}%%{--<g:link controller="user" action="topicDetails"--}%%{--
-                                                --}%%{--id="${topic.key.id}">${topic.key}</g:link>--}%%{--
-                                    --}%%{--</span>--}%%{--
-                                    --}%%{--<span style="display: block">--}%%{--
-                                        --}%%{--<g:if test="${topic.key.summary.length() > 50}">--}%%{--
-                                            --}%%{--${topic.key.summary.substring(0, 48)} ...--}%%{--
-                                            --}%%{--${topic.key.summary}--}%%{--
-                                        --}%%{--</g:if>--}%%{--
-                                        --}%%{--<g:else>--}%%{--
-                                            --}%%{--${topic.key.summary}--}%%{--
-                                        --}%%{--</g:else>--}%%{--
-                                    --}%%{--</span>--}%%{--
-                                    --}%%{--<span><g:link controller="user" action="allResources" id="${topic.key.id}">Resources</g:link> </span>--}%%{--
+                                    <span style="{display: block}">
+                                        <g:link controller="user" action="topicDetails"
+                                                id="${topic.key.id}">${topic.key}</g:link>
+                                    </span>
+                                    <span style="display: block">
+                                        <g:if test="${topic.key.summary.length() > 50}">
+                                            ${topic.key.summary.substring(0, 48)} ...
+                                        </g:if>
+                                        <g:else>
+                                            ${topic.key.summary}
+                                        </g:else>
+                                    </span>
+                                    <span>
+                                        <g:link controller="user" action="allResources" id="${topic.key.id}">
+                                            Resources</g:link>
+                                    </span>
+                                    <span style="margin-left: 3px">Total ${topic.key.subscriptions.size()} subscribers</span>
                                 </td>
                             </tr>
-                        </g:each>--}%
+                        </g:each>
                         </tbody>
                     </table>
                 </div>
@@ -68,11 +71,11 @@
                     <table class="table">
                         <thead><tr><th>Name</th></tr></thead>
                         <tbody>
-                        %{--<g:each in="${latestTopics}" var="topic">--}%
-                        %{--<tr>--}%
-                        %{--<td>${topic.name}</td>--}%
-                        %{--</tr>--}%
-                        %{--</g:each>--}%
+                        <g:each in="${latestTopics}" var="topic">
+                            <tr>
+                                <td>${topic.name}</td>
+                            </tr>
+                        </g:each>
                         </tbody>
                     </table>
                 </div>

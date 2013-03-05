@@ -148,5 +148,9 @@ class UserController {
         List<Resource> resources = Resource.findAllByTopic(topic)
         [topic: topic, resources: resources]
     }
+
+     def allResources() {
+         render "There will be a page for this here... :-)"
+     }
 }
 

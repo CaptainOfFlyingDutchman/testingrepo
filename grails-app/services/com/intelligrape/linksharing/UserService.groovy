@@ -44,6 +44,7 @@ class UserService {
         List<Topic> latestTopics = Topic.createCriteria().list {
             order("dateCreated", "desc")
         }
+        return latestTopics
     }
 
     // This will return a list which contains another list each containing Topic, and an integer
